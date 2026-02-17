@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+    --bg-and-main: hsl(206, 15%, 18%);
+    --primary: hsl(202, 51%, 69%);
+    --secondary: hsl(45, 46%, 95%);
+    --inactive: hsla(206, 16%, 18%, 0.12);
+    --error: hsl(8, 76%, 55%);
+    --done: hsla(95, 68%, 63%, 1);
+    --btn-hover: hsl(202, 8%, 27%);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.content-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 114px;
+    width: 100%;
+}
+
+body {
+    background-color: var(--bg-and-main);
+}
+
+.color-primary {
+    color: var(--primary);
+}
+
+.color-main {
+    color: var(--bg-and-main)
+}
+
+.hero-height {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.hero-height .content-wrapper{
+    flex: 1;
+        display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.hero-layout {
+    border: 1px solid blue;
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary);
+}
+
+.hero-layout-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-image-bg-shape {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: min(634px, 100%);
+    aspect-ratio: 1/1;
+}
+
+.hero-image-bg-shape::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./assets/shapes/hero_shape_1_default.svg') no-repeat bottom center;
+    background-size: contain;
+    z-index: -1;
+    transition: transform ease-in 125ms;
+}
+
+.hero-image-bg-shape:hover::before {
+    transform: rotate(-18deg)
+}
+
+.logo-anta,
+.hero-h1 {
+    font-family: 'Anta', sans-serif;
+}
+
+.hero-h1 {
+    font-size: 88px;
+    padding: 36px 0;
+}
+
+.hero-h2 {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.logo-main,
+.logo-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary);
+    font-size: 16px;
+}
+
+.logo-hero svg {
+    transition: transform 125ms ease-in;
+}
+
+.logo-hero svg:hover {
+    transform: scaleX(1.1);
+}
+
+.hero-btn-down {
+    margin-top: 36px;
+}
+
+.hero-btn-down svg .ignore-fill {
+    fill: var(--primary);
+}
+
+.hero-btn-down:hover svg .hero-btn-shape {
+    fill: var(--btn-hover);
+}
+
+.nav-section {
+    display: flex;
+    align-items: center;
+    height: 104px;
+    background-color: var(--primary);
+}
+
+.nav-positioning {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link-section {
+    display: flex;
+    gap: 92px;
+}
+
+.nav-link-section a {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--bg-and-main);
+}
+
+.nav-link-section a:hover {
+    color: var(--secondary)
+}
