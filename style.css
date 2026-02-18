@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -13,6 +14,7 @@
     --error: hsl(8, 76%, 55%);
     --done: hsla(95, 68%, 63%, 1);
     --btn-hover: hsl(202, 8%, 27%);
+    --nav-height: 104px;
 }
 
 a {
@@ -27,46 +29,43 @@ button {
     cursor: pointer;
 }
 
-.content-wrapper {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 114px;
-    width: 100%;
-}
-
 body {
     background-color: var(--bg-and-main);
 }
 
-.color-primary {
+/* ------------ HERO section ------------  */
+
+.content-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.content-wrapper {
+    padding: 0 72px;
+}
+
+.color-lightblue {
     color: var(--primary);
 }
 
-.color-main {
+.color-dark {
     color: var(--bg-and-main)
 }
 
 .hero-height {
-    height: 100dvh;
+    height: calc(100dvh - var(--nav-height));
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
-}
-
-.hero-height .content-wrapper{
-    flex: 1;
-        display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    position: relative;
 }
 
 .hero-layout {
-    border: 1px solid blue;
-    height: 100%;
-    
     display: flex;
     justify-content: space-between;
     color: var(--secondary);
+    height: 100%;
 }
 
 .hero-layout-right {
@@ -76,9 +75,13 @@ body {
     align-items: center;
 }
 
+.hero-layout-left {
+    display: flex;
+    align-self: flex-end;
+    flex: 1;
+}
+
 .hero-image {
-    max-width: 100%;
-    height: auto;
     object-fit: cover;
     display: block;
 }
@@ -87,8 +90,9 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    height: min(634px, 100%);
+    width: 80%;
     aspect-ratio: 1/1;
+    max-height: calc(100dvh - 104px);
 }
 
 .hero-image-bg-shape::before {
@@ -106,7 +110,8 @@ body {
 }
 
 .logo-anta,
-.hero-h1 {
+.hero-h1,
+.me-h2 {
     font-family: 'Anta', sans-serif;
 }
 
@@ -129,12 +134,17 @@ body {
     font-size: 16px;
 }
 
-.logo-hero svg {
-    transition: transform 125ms ease-in;
+.logo-hero svg path[transform] {
+    transition: transform 125ms ease-in-out;
+    transform-origin: center;
 }
 
-.logo-hero svg:hover {
+.logo-hero:hover svg path[transform] {
     transform: scaleX(1.1);
+}
+
+.logo-hero svg {
+    overflow: visible;
 }
 
 .hero-btn-down {
@@ -145,15 +155,59 @@ body {
     fill: var(--primary);
 }
 
-.hero-btn-down:hover svg .hero-btn-shape {
+.btn-me-contact:hover svg,
+.hero-btn-down:hover svg {
     fill: var(--btn-hover);
 }
+
+.hero-social-group {
+    padding-top: 68px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btn-social-hero {
+    width: 30px;
+    height: 30px;
+}
+
+.btn-social-hero[data-icon="email"] {
+    background-image: url('./assets/icons/email_blue_standard.svg');
+}
+
+.btn-social-hero[data-icon="email"]:hover {
+    background-image: url('./assets/icons/email_blue_hover.svg');
+}
+
+.btn-social-hero[data-icon="git"] {
+    background-image: url('./assets/icons/git_blue_standard.svg');
+}
+
+.btn-social-hero[data-icon="git"]:hover {
+    background-image: url('./assets/icons/git_blue_hover.svg');
+}
+
+.btn-social-hero[data-icon="linkedin"] {
+    background-image: url('./assets/icons/linkedin_blue_standard.svg');
+}
+
+.btn-social-hero[data-icon="linkedin"]:hover {
+    background-image: url('./assets/icons/linkedin_blue_hover.svg');
+}
+
+
+/* HERO section - Navigation */
 
 .nav-section {
     display: flex;
     align-items: center;
-    height: 104px;
+    box-sizing: border-box;
     background-color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: var(--nav-height)
 }
 
 .nav-positioning {
@@ -176,3 +230,135 @@ body {
 .nav-link-section a:hover {
     color: var(--secondary)
 }
+
+/* ------------ ME + SKILL (+partially PROJECT) section ------------  */
+
+#me,
+#skills,
+#projects {
+    scroll-margin-top: calc(2 * var(--nav-height));
+}
+
+.me-section,
+.skill-section,
+.project-section {
+    margin-top: 104px; 
+}
+.me-section,
+.skill-section {
+    padding: 0 124px;
+}
+
+.me-section,
+.skill-section,
+.project-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.me-h2,
+.skill-h2,
+.project-h2 {
+    font-size: 60px;
+    color: var(--primary);
+    align-self: center;
+}
+
+.me-boxes,
+.skill-boxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 80px;
+    color: var(--secondary);
+}
+
+.me-interactiv {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    width: max(45%, 200px);
+}
+
+.btn-me-contact {
+    align-self: end;
+    margin-top: 24px;
+}
+
+.me-text {
+    width: 45%;
+}
+
+.me-text,
+.skill-text-section {
+    text-wrap: balance;
+    font-size: 18px;
+    font-weight: 400;
+    flex-wrap: wrap;
+}
+
+
+.skill-icons-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 40px;
+}
+
+.skill-text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: max(30%, 380px);
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+.skill-text-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./assets/shapes/skill_shape_default_opac0.07.svg') no-repeat bottom center;
+    background-size: contain;
+    z-index: -1;
+    transition: all ease-in 125ms;
+}
+
+.skill-text-section:hover::before {
+    transform: rotate(72deg);
+    background: url('./assets/shapes/skill_shape_default_opac0.2.svg') no-repeat bottom center;
+    background-size: contain;
+}
+
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.skill-icons-60 {
+    width: 60px;
+    aspect-ratio: 1/1;
+}
+
+.skill-icons-32 {
+    width: 32px;
+    aspect-ratio: 1/1;
+}
+
+.skill-learning-icons {
+    display: flex;
+    gap: 24px;
+    padding: 19px 0;
+}
+
+.skill-text {
+    padding: 0 45px;
+}
+
+/*  */
