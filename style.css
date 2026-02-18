@@ -13,6 +13,7 @@
     --inactive: hsla(206, 16%, 18%, 0.12);
     --error: hsl(8, 76%, 55%);
     --done: hsla(95, 68%, 63%, 1);
+    --section: hsla(203, 17%, 21%);
     --btn-hover: hsl(202, 8%, 27%);
     --nav-height: 104px;
 }
@@ -242,8 +243,9 @@ body {
 .me-section,
 .skill-section,
 .project-section {
-    margin-top: 104px; 
+    margin-top: 104px;
 }
+
 .me-section,
 .skill-section {
     padding: 0 124px;
@@ -361,4 +363,56 @@ body {
     padding: 0 45px;
 }
 
-/*  */
+/* PROJECT section */
+
+.project-tabs {
+    padding-top: 80px;
+    box-sizing: border-box;
+    display: flex;
+
+}
+
+.project-h3 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.project-header-tab {
+    min-width: 250px;
+    height: 97px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-content-tab,
+.project-header-tab:hover {
+    color: var(--secondary)
+}
+
+.project-content-tab {
+    background-color: var(--section);
+    padding-top: 16px;
+}
+
+.project-content-tab p{
+    margin: 16px 0 32px 0;
+}
+
+.project-header-tab.active {
+    background-color: var(--section);
+    border-radius: 30px 30px 0 0;
+}
+
+.project-liststyle {
+    padding-left: 48px;
+}
+
+.project-liststyle li:nth-child(2n+1) {
+    list-style-image: url('./assets/shapes/shape_liststyle.svg');
+
+}
+.project-liststyle li:nth-child(2n) {
+    list-style: none;
+}
+

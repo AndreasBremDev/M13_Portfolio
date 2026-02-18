@@ -257,7 +257,53 @@
 
         <section id="projects" class="project-section">
             <h2 class="project-h2">My Projects</h2>
+            <div class="project-tabs" role="group">
+                <div class="project-header-tab ">
+                    <button onclick="showTab('join')" class="project-h3 color-lightblue" role="tab"
+                        aria-selected="true">1. Business-App</button>
+                </div>
+                <div class="project-header-tab active">
+                    <button onclick="showTab('epl')" class="project-h3 color-lightblue" role="tab"
+                        aria-selected="false">2. Game</button>
+                </div>
+                <div class="project-header-tab">
+                    <button onclick="showTab('upcoming')" class="project-h3 color-lightblue" role="tab"
+                        aria-selected="false">3. Upcoming</button>
+                </div>
+            </div>
+            <article id="join" class="project-content-tab" style="display:block;">
+                <ul class="project-liststyle">
+                    <li>
+                        <h3>About the project: JOIN, Kanban-App</h3>
+                    </li>
+                    <li>
+                        <p>TEAM-PROJECT, Task manager inspired by the Kanban System. Create and organize tasks using
+                            drag
+                            and drop functions, assign users and categories.</p>
+                    </li>
+                    <li>
+                        <h3>My learnings</h3>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <h3>Group work process</h3>
+                    </li>
+                    <li>
+                        <p>Within the team we assigned epics to each team member. Then handled each user-story, feature
+                            within this epic, individually, through git-branching.
+                            When done, we merged together, so no code was deleted by mistake. This way development process
+                            was clean and team collaboration easy.</p>
+                    </li>
+                </ul>
+            </article>
+            <article id="epl" class="project-content-tab" style="display:none;">
 
+            </article>
+            <article id="upcoming" class="project-content-tab" style="display:none;">
+
+            </article>
         </section>
     </main>
 
