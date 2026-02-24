@@ -23,12 +23,34 @@ a {
     cursor: pointer;
 }
 
+body {
+    background-color: var(--bg-and-main);
+}
+
 button {
     background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
     font: inherit;
+}
+
+.content-wrapper {
+    max-inline-size: 1920px;
+    margin-inline: auto;
+    width: 100%;
+}
+
+.content-wrapper {
+    padding: 0 72px;
+}
+
+.color-lightblue {
+    color: var(--primary);
+}
+
+.color-dark {
+    color: var(--bg-and-main)
 }
 
 .btn-cta,
@@ -66,27 +88,6 @@ button {
     background-color: var(--btn-hover);
 }
 
-body {
-    background-color: var(--bg-and-main);
-}
-
-.content-wrapper {
-    max-inline-size: 1920px;
-    margin-inline: auto;
-    width: 100%;
-}
-
-.content-wrapper {
-    padding: 0 72px;
-}
-
-.color-lightblue {
-    color: var(--primary);
-}
-
-.color-dark {
-    color: var(--bg-and-main)
-}
 
 /* ------------ HERO section ------------  */
 
@@ -594,19 +595,34 @@ body {
 .contact-section {
     max-inline-size: 920px;
     margin-inline: auto;
+    color: var(--secondary);
+    position: relative;
 }
 
 .contact-boxes {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 21px;
-    color: var(--secondary);
+    padding: 80px 0 48px 0;
 }
 
 .contact-mail-phone {
     display: flex;
     flex-direction: column;
-    text-align: end;
+    text-align: start;
+}
+
+.contact-mail-phone a {
+    color: var(--secondary)
+}
+
+.contact-mail-phone a:hover {
+    color: var(--primary)
+}
+
+.form-label {
+    font-size: 16px;
+    padding: 0 27px;
 }
 
 input,
@@ -615,17 +631,92 @@ select {
     font: inherit;
 }
 
+form {
+    display: grid;
+    gap: 16px;
 
+    @media (width > 720px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
+.form-group {
+    display: grid;
+    box-sizing: border-box;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid var(--primary)
+}
 
+.form-group:hover {
+    background-color: var(--btn-hover);
+}
 
+textarea,
+input {
+    background-color: var(--bg-and-main);
+    color: var(--secondary);
+    padding: 20px 26px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+}
 
+input:not([type="checkbox"]) {
+    width: 100%;
+}
+
+.form-stretch {
+    grid-column: 1 / -1;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    height: 120px;
+    width: 100%;
+}
+
+.form-button {
+    justify-self: end;
+}
+
+.form-policy label{
+    display: inline-flex;
+    align-items: center;
+}
+
+.chb-policy {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.chb-policy+label::before {
+    background: url('./assets/icons/checkbox_unchecked_default.svg') no-repeat center center / cover;
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.chb-policy:checked+label::before {
+    background: url('./assets/icons/checkbox_checked_default.svg') no-repeat center center / cover;
+}
+
+.contact-btn-up{
+    position: absolute;
+    right: -37px;
+    top: 0;
+}
 
 
 
 
 .bounce-page {
-    animation: bouncePage 0.5s;
+    animation: bouncePage 0.6s linear;
+    will-change: transform;
 }
 
 @keyframes bouncePage {
@@ -633,14 +724,23 @@ select {
         transform: translateY(0);
     }
 
-    30% {
-        transform: translateY(30px);
+    14% {
+        transform: translateY(12px);
     }
 
-    60% {
-        tranform: translateY(-5px);
+    28% {
+        transform: translateY(-4px);
     }
 
+    42% {
+        transform: translateY(1.5px)
+    }
+
+    56% {
+        transform: translateY(-0.5px);
+    }
+
+    70%,
     100% {
         transform: translateY(0);
     }

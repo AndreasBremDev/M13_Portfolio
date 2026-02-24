@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header class="hero-height">
+    <header class="hero-height" id="header">
         <div class="content-wrapper">
             <section class="hero-layout">
                 <article class="hero-layout-left">
@@ -45,7 +45,7 @@
                     <h1 class="hero-h1">Andreas Brem</h1>
                     <h2 class="hero-h2">FRONTEND DEVELOPER</h2>
                     <button class="hero-btn-down">
-                        <a href="#me">
+                        <a href="#me" onclick="scrollToTarget('me', event)">
                             <svg width="38" height="89" viewBox="0 0 38 89" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.5" y="0.5" width="37" height="88" rx="18.5" stroke="#89BCD9" />
@@ -539,15 +539,13 @@
                         </a>
                     </div>
                     <div class="references-text-section">
-                        <h4>Emin Fatih Halici</h4>
+                        <h4>Andreas Brem</h4>
                         <p>Project <span class="color-lightblue">Join</span></p>
-                        <p class="references-text">Working with Andreas was an absolute enrichment to our group project.
-                            I was
-                            particularly impressed by his ability to see the bigger picture: he never rested on his
-                            laurels,
-                            but proactively took responsibility and pitched in wherever help was needed. No matter how
-                            stressful things got, he always had a listening ear and was fully committed to the team's
-                            success.
+                        <p class="references-text">
+                            Mit Emin zusammen zu arbeiten hat mir sehr gefallen.
+                            Wir haben gut harmoniert und so konnten durch gemeinsame coding sessions ziel-orientiert
+                            und gewinnbringend das Gruppenprojekt Join (Kanban-Management) abschließen.
+                            Ich bin froh, Emin im Team gehabt zu haben!
                         </p>
                         <a href="https://www.linkedin.com/in/emin-fatih-halici/" target="_blank"
                             rel="noopener noreferrer">
@@ -561,20 +559,53 @@
                 <h2 class="contact-h2">Contact me</h2>
                 <div class="contact-boxes">
                     <div class="contact-text">
-                        <p>UPDATE NEEDED HERE - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quis tempore similique, quibusdam commodi quod in impedit eveniet odio facere voluptate magnam nulla modi totam, necessitatibus cumque placeat. Cupiditate, porro..</p>
+                        <p>UPDATE NEEDED HERE - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quis
+                            tempore similique, quibusdam commodi quod in impedit eveniet odio facere voluptate magnam
+                            nulla modi totam, necessitatibus cumque placeat. Cupiditate, porro..</p>
                     </div>
                     <div class="contact-mail-phone">
                         <a href="mailto:andreas.brem.dev@gmail.com">Email: andreas.brem.dev@gmail.com</a>
-                        
+                        <a href="tel:+491234567890">Phone: +49 123 456 789 0</a>
                     </div>
                 </div>
-                <div class="btn-me-contact">
-                    <button class="btn-standard">
+
+                <form>
+                    <div>
+                        <label for="name" class="form-label color-lightblue">Your Name</label>
+                        <input type="text" id="name" placeholder="Your Name" class="form-group">
+                    </div>
+                    <div>
+                        <label for="email" class="form-label color-lightblue">Your Email</label>
+                        <input type="email" id="email" placeholder="Your Email" class="form-group">
+                    </div>
+                    <div class="form-stretch">
+                        <label for="email" class="form-label color-lightblue">Your Message</label>
+                        <textarea placeholder="Your Message" class="form-group">
+                        </textarea>
+                    </div>
+                    <div class="form-stretch form-policy">
+                        <input type="checkbox" id="chb-policy" class="chb-policy">
+                        <label for="chb-policy"> I've read the&nbsp;<a href=""><span class="color-lightblue">privacy
+                                    policy</span></a>&nbsp;and agree to the processing of my data as outlined.</label>
+                    </div>
+
+                    <button class="form-stretch btn-standard form-button">
                         <a href="">
                             send
                         </a>
                     </button>
-                </div>
+                </form>
+
+                <button class="contact-btn-up">
+                    <a href="#header" onclick="scrollToTarget('header', event)">
+                        <svg width="38" height="89" viewBox="0 0 38 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.5858 24.9366L10.6735 31.2396C10.2918 31.5877 9.7077 31.5877 9.32595 31.2396L8.81034 30.7694C8.3754 30.3728 8.3754 29.6882 8.81034 29.2916L18.3262 20.6144C18.708 20.2663 19.292 20.2663 19.6738 20.6144L29.1897 29.2916C29.6246 29.6882 29.6246 30.3728 29.1897 30.7694L28.6741 31.2396C28.2923 31.5877 27.7082 31.5877 27.3265 31.2396L20.4142 24.9366L20.4142 69C20.4142 69.5523 19.9665 70 19.4142 70H18.5858C18.0335 70 17.5858 69.5523 17.5858 69L17.5858 24.9366Z"
+                                fill="#89BCD9" />
+                            <rect x="0.5" y="0.5" width="37" height="88" rx="18.5" stroke="#89BCD9" />
+                        </svg>
+                    </a>
+                </button>
             </section>
 
         </div>

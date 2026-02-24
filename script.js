@@ -34,8 +34,10 @@ function scrollToTarget(targetId, ev) {
     let target = document.getElementById(targetId);
     target.scrollIntoView({ behavior: "smooth" })
     window.addEventListener("scrollend", () => {
-        bounceWholePage();
-    }, {once: true});
+        requestAnimationFrame(() => {
+            bounceWholePage();
+        });
+    }, { once: true });
 }
 
 function bounceWholePage() {
@@ -43,5 +45,5 @@ function bounceWholePage() {
     main.classList.add("bounce-page");
     setTimeout(() => {
         main.classList.remove("bounce-page");
-    }, 500);
+    }, 600);
 }
