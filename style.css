@@ -95,14 +95,19 @@ button {
     height: calc(100dvh - var(--nav-height));
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
 .hero-layout {
     display: flex;
+    flex: 1;
     justify-content: space-between;
     color: var(--secondary);
-    height: 100%;
+}
+
+.hero-layout-left {
+    display: flex;
+    align-self: flex-end;
+    flex: 1;
 }
 
 .hero-layout-right {
@@ -112,24 +117,18 @@ button {
     align-items: center;
 }
 
-.hero-layout-left {
+.hero-image-bg-shape {
+    position: relative;
     display: flex;
-    align-self: flex-end;
-    flex: 1;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-height: calc(100dvh - 104px);
 }
 
 .hero-image {
     object-fit: cover;
     display: block;
-}
-
-.hero-image-bg-shape {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    aspect-ratio: 1/1;
-    max-height: calc(100dvh - 104px);
 }
 
 .hero-image-bg-shape::before {
@@ -613,6 +612,7 @@ button {
     max-inline-size: 920px;
     margin-inline: auto;
     color: var(--secondary);
+    margin-bottom: 180px;
     position: relative;
 }
 
