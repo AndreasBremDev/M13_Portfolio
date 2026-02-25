@@ -258,10 +258,27 @@ button {
     gap: 92px;
 }
 
-.nav-link-section a {
+.nav-links {
     font-size: 26px;
     font-weight: 500;
+    line-height: 200%;
+    width: 100px;
+    text-align: center;
     color: var(--bg-and-main);
+    position: relative;
+}
+
+.nav-links.active{
+    color: var(--secondary);
+}
+
+.nav-links.active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./assets/shapes/nav_shape_active.svg') no-repeat center center;
+    background-size: contain;
+    z-index: -1;
 }
 
 .nav-link-section a:hover {
@@ -606,6 +623,11 @@ button {
     padding: 80px 0 48px 0;
 }
 
+.contact-text,
+.contact-mail-phone {
+    padding-left: 26px;
+}
+
 .contact-mail-phone {
     display: flex;
     flex-direction: column;
@@ -613,11 +635,11 @@ button {
 }
 
 .contact-mail-phone a {
-    color: var(--secondary)
+    color: var(--secondary);
 }
 
 .contact-mail-phone a:hover {
-    color: var(--primary)
+    color: var(--primary);
 }
 
 .form-label {
@@ -699,6 +721,7 @@ textarea {
     display: inline-flex;
     align-items: center;
     margin-right: 12px;
+    cursor: pointer;
 }
 
 .chb-policy:checked+label::before {
@@ -715,7 +738,7 @@ textarea {
 
 
 .bounce-page {
-    animation: bouncePage 0.6s linear;
+    animation: bouncePage 0.3s ease-in-out;
     will-change: transform;
 }
 
@@ -723,24 +746,12 @@ textarea {
     0% {
         transform: translateY(0);
     }
-
-    14% {
-        transform: translateY(12px);
+    33% {
+        transform: translateY(8px);
     }
-
-    28% {
+    66% {
         transform: translateY(-4px);
     }
-
-    42% {
-        transform: translateY(1.5px)
-    }
-
-    56% {
-        transform: translateY(-0.5px);
-    }
-
-    70%,
     100% {
         transform: translateY(0);
     }

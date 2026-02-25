@@ -4,32 +4,43 @@ function showProject(ev) {
     let projectTabs = ev.target.dataset.project;
     let contentTabs = ev.target.dataset.content;
     let targetId = ev.target.dataset.target;
-    showHeaderTab(projectTabs, ev);
+    toggleClassActive(ev, projectTabs);
     showContentTab(contentTabs, targetId);
-
 }
 
-function showHeaderTab(projectTabs, ev) {
-    let tab = document.getElementsByClassName(projectTabs);
+function setActiveAndScrollToTarget(ev, navTabs, targetId) {
+    ev.preventDefault();
+    toggleClassActive(ev, navTabs);
+    scrollToTarget(ev, targetId);
+}
+
+function toggleClassActive(ev, tabs) {
+    let tab = document.getElementsByClassName(tabs);
     for (let i = 0; i < tab.length; i++) {
         tab[i].classList.remove("active");
-        tab[i].ariaSelected = "false";
+        tab[i].setAttribute("aria-selected", "false");
     }
-    ev.target.parentElement.classList.add("active");
-    ev.target.parentElement.ariaSelected = "true";
+    let targetElement = ev.currentTarget;
+    if (targetElement.dataset.project){
+        targetElement.parentElement.classList.add("active");
+        targetElement.parentElement.setAttribute("aria-selected", "true");
+    } else {
+        targetElement.classList.add("active");
+        targetElement.setAttribute("aria-selected", "true");
+    }
 }
 
 function showContentTab(contentTabs, targetId) {
     let tab = document.getElementsByClassName(contentTabs);
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.display = "none";
-        tab[i].ariaSelected = "false";
+        tab[i].setAttribute("aria-selected", "false");
     }
     document.getElementById(targetId).style.display = "flex";
-    document.getElementById(targetId).ariaSelected = "true";
+    document.getElementById(targetId).setAttribute("aria-selected", "true");
 }
 
-function scrollToTarget(targetId, ev) {
+function scrollToTarget(ev, targetId) {
     ev.preventDefault();
     let target = document.getElementById(targetId);
     target.scrollIntoView({ behavior: "smooth" })
@@ -45,5 +56,5 @@ function bounceWholePage() {
     main.classList.add("bounce-page");
     setTimeout(() => {
         main.classList.remove("bounce-page");
-    }, 600);
+    }, 300);
 }
