@@ -16,6 +16,7 @@
     --section: hsla(203, 17%, 21%);
     --btn-hover: hsl(202, 8%, 27%);
     --nav-height: 104px;
+    --footer-height: 214px;
 }
 
 a {
@@ -51,6 +52,29 @@ button {
 
 .color-dark {
     color: var(--bg-and-main)
+}
+
+.bounce-page {
+    animation: bouncePage 0.3s ease-in-out;
+    will-change: transform;
+}
+
+@keyframes bouncePage {
+    0% {
+        transform: translateY(0);
+    }
+
+    33% {
+        transform: translateY(8px);
+    }
+
+    66% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .btn-cta,
@@ -95,12 +119,36 @@ button {
     height: calc(100dvh - var(--nav-height));
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.hero-mobile-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-and-main);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: var(--nav-height);
+}
+
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.burger-stripe{
+    background-color: var(--secondary);
+    height: 2px;
+    width: 30px;
 }
 
 .hero-layout {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 30px;
+    height: 100%;
     color: var(--secondary);
 }
 
@@ -152,12 +200,12 @@ button {
 }
 
 .hero-h1 {
-    font-size: 88px;
+    font-size: clamp(44px, 4.5vw, 88px);
     padding: 36px 0;
 }
 
 .hero-h2 {
-    font-size: 40px;
+    font-size: clamp(20px, 2vw, 40px);
     font-weight: 400;
 }
 
@@ -187,22 +235,29 @@ button {
     margin-top: 36px;
 }
 
+.contact-btn-up svg .ignore-fill,
 .hero-btn-down svg .ignore-fill {
     fill: var(--primary);
 }
 
+.contact-btn-up:hover svg,
 .btn-me-contact:hover svg,
 .hero-btn-down:hover svg {
     fill: var(--btn-hover);
 }
 
+.footer-social-group,
 .hero-social-group {
-    padding-top: 68px;
     display: flex;
-    flex-direction: column;
     gap: 16px;
 }
 
+.hero-social-group {
+    padding-top: 68px;
+    flex-direction: column;
+}
+
+.btn-social-footer,
 .btn-social-hero {
     width: 30px;
     height: 30px;
@@ -267,7 +322,7 @@ button {
     position: relative;
 }
 
-.nav-links.active{
+.nav-links.active {
     color: var(--secondary);
 }
 
@@ -307,8 +362,9 @@ button {
 
 .me-section,
 .skill-section,
+.skill-text-section,
 .project-section,
-.references-text-section {
+.references-text-container {
     display: flex;
     flex-direction: column;
 }
@@ -355,7 +411,6 @@ button {
     text-wrap: balance;
     font-size: 18px;
     font-weight: 400;
-    flex-wrap: wrap;
 }
 
 .skill-icons-section {
@@ -366,14 +421,13 @@ button {
 }
 
 .skill-text-section,
-.references-text-section {
-    display: flex;
-    flex-direction: column;
+.references-text-container {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: max(30%, 400px);
-    aspect-ratio: 1/1;
+    width: 400px;
+    min-width: 400px;
+    flex-shrink: 0;
     position: relative;
 }
 
@@ -565,13 +619,11 @@ button {
     display: flex;
     justify-content: center;
     gap: 17px;
+    min-height: 456px;
+    padding-top: 56px;
 }
 
-.references-text-section {
-    margin-top: 56px;
-}
-
-.references-text-section h4 {
+.references-text-container h4 {
     font-size: 26px;
     font-weight: 600;
     padding-bottom: 8px;
@@ -582,14 +634,14 @@ button {
     font-size: 18px;
 }
 
-.references-text-section a {
+.references-text-container a {
     color: var(--primary);
     text-decoration: underline;
     cursor: pointer;
 }
 
 
-.references-text-section::before {
+.references-text-container::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -600,8 +652,8 @@ button {
     transform-origin: center;
 }
 
-.references-text-section:hover::before {
-    transform: rotate(-72deg);
+.references-text-container:hover::before {
+    transform: rotate(-90deg);
     background: url('./assets/shapes/references_shape_default_opac0.2.svg') no-repeat bottom center;
     background-size: contain;
 }
@@ -703,7 +755,7 @@ textarea {
     justify-self: end;
 }
 
-.form-policy label{
+.form-policy label {
     display: inline-flex;
     align-items: center;
 }
@@ -728,31 +780,55 @@ textarea {
     background: url('./assets/icons/checkbox_checked_default.svg') no-repeat center center / cover;
 }
 
-.contact-btn-up{
+.contact-btn-up {
     position: absolute;
     right: -37px;
     top: 0;
 }
 
+/* FOOTER Section */
 
-
-
-.bounce-page {
-    animation: bouncePage 0.3s ease-in-out;
-    will-change: transform;
+footer {
+    background-color: var(--primary);
+    height: 214px;
+    display: flex;
+    align-items: center;
 }
 
-@keyframes bouncePage {
-    0% {
-        transform: translateY(0);
-    }
-    33% {
-        transform: translateY(8px);
-    }
-    66% {
-        transform: translateY(-4px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.footer-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--bg-and-main);
+}
+
+.btn-social-footer[data-icon="email"] {
+    background-image: url('./assets/icons/email_gray.svg');
+}
+
+.btn-social-footer[data-icon="email"]:hover {
+    background-image: url('./assets/icons/email_white-black.svg');
+}
+
+.btn-social-footer[data-icon="git"] {
+    background-image: url('./assets/icons/git_gray.svg');
+}
+
+.btn-social-footer[data-icon="git"]:hover {
+    background-image: url('./assets/icons/git_white-black.svg');
+}
+
+.btn-social-footer[data-icon="linkedin"] {
+    background-image: url('./assets/icons/linkedin_gray.svg');
+}
+
+.btn-social-footer[data-icon="linkedin"]:hover {
+    background-image: url('./assets/icons/linkedin_white-black.svg');
 }
