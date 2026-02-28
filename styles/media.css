@@ -1,13 +1,42 @@
+@media (pointer:fine) and (hover: hover) {
+
+    /* ------------ HERO section ------------  */
+    .hero-image-bg-shape:hover::before {
+        transform: rotate(-18deg)
+    }
+}
+
+@media(max-width:1620px) {
+
+    /* ------------ ME / SKILLS section ------------  */
+    .me-section,
+    .skill-section {
+        padding: 0 64px;
+    }
+}
+
+@media(max-width:1510px) {
+
+    /* ------------ ME / SKILLS section ------------  */
+    .me-section,
+    .skill-section {
+        padding: 0 32px;
+    }
+}
+
 @media(max-width:1270px) {
+
+    /* ------------ GENERAL ------------  */
     .content-wrapper {
         padding: 0 36px;
     }
 
+    /* ------------ REFERENCE section ------------  */
     .references-box {
         justify-content: start;
         overflow-x: scroll;
         overflow-y: hidden;
-        scrollbar-color: hsl(202, 51%, 69%) transparent;
+        scrollbar-color: hsl(202, 51%, 69%, 0.07) transparent;
 
         &::-webkit-scrollbar {
             background-color: transparent;
@@ -18,8 +47,12 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: hsl(202, 51%, 69%);
+            background-color: hsl(202, 51%, 69%, 0.07);
             border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: hsl(202, 51%, 69%);
         }
     }
 
@@ -36,9 +69,28 @@
     }
 }
 
-
-
 @media(max-width:1024px) {
+
+    /* ------------ HERO section ------------  */
+    .hero-image-bg-shape {
+
+        -webkit-mask-image: url('../assets/shapes/hero_shape_1_default.svg');
+        mask-image: url('../assets/shapes/hero_shape_1_default.svg');
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: bottom center;
+        mask-position: bottom center;
+    }
+
+    /* ------------ ME / SKILLS section ------------  */
+    .me-section,
+    .skill-section {
+        padding: 0 0;
+    }
+
+    /* ------------ CONTACT section ------------  */
     .contact-btn-up {
         right: unset;
         top: unset;
@@ -46,15 +98,45 @@
         left: 50%;
         transform: translateX(-50%);
     }
+
+
+
+}
+
+@media(max-width:960px) {
+
+    /* ------------ GENERAL ------------  */
+    .content-wrapper {
+        padding: 0 12px;
+    }
+
+    /* ------------ HERO section ------------  */
+
+    .hero-mobile-top {
+        display: flex;
+    }
+
+    .hero-height {
+        height: unset;
+    }
+
+    .nav-section,
+    .hero-logo,
+    .hero-social-group {
+        display: none;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding-top: var(--nav-height);
+        border: 1px solid red;
+    }
 }
 
 @media(max-width:720px) {
 
     /* ------------ GENERAL ------------  */
-
-    .content-wrapper {
-        padding: 0 12px;
-    }
 
     /* ------------ HERO section ------------  */
 
@@ -92,4 +174,10 @@
         order: 2;
     }
 
+}
+
+@media(max-width:460px) {
+    .hero-image-bg-shape {
+        width: 100%;
+    }
 }

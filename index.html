@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/media.css">
 
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 
 </head>
 
@@ -20,7 +20,7 @@
     <div class="content-wrapper">
         <header class="hero-height" id="header">
             <section class="hero-mobile-top">
-                <div class="logo-hero">
+                <div class="hero-logo-mobile">
                     <svg width="53" height="38" viewBox="0 0 53 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M14 27.8594C13.4948 27.8438 13.0573 27.7266 12.6875 27.5078C12.3177 27.2891 12.0104 27 11.7656 26.6406C11.5312 26.2969 11.3542 25.9115 11.2344 25.4844C11.1146 25.0625 11.0547 24.6432 11.0547 24.2266V22.9062C11.0547 22.1562 10.875 21.612 10.5156 21.2734C10.1615 20.9349 9.61719 20.763 8.88281 20.7578V19.625C9.61719 19.625 10.1615 19.4583 10.5156 19.125C10.875 18.7865 11.0547 18.2396 11.0547 17.4844V16.1562C11.0547 15.7344 11.1094 15.3047 11.2188 14.8672C11.3333 14.4245 11.513 14.0286 11.7578 13.6797C11.987 13.3464 12.2865 13.0755 12.6562 12.8672C13.026 12.6536 13.474 12.5391 14 12.5234L14.1641 13.4219C13.7891 13.4323 13.4896 13.5208 13.2656 13.6875C13.0469 13.8542 12.8828 14.0651 12.7734 14.3203C12.6589 14.5807 12.5859 14.8724 12.5547 15.1953C12.5234 15.5182 12.5078 15.8385 12.5078 16.1562V17.4844C12.5078 18.1094 12.362 18.6589 12.0703 19.1328C11.7839 19.6016 11.3385 19.9583 10.7344 20.2031C11.3385 20.4427 11.7839 20.7995 12.0703 21.2734C12.3568 21.7422 12.5026 22.2865 12.5078 22.9062V24.2266C12.5078 24.5495 12.5339 24.8698 12.5859 25.1875C12.638 25.5104 12.7292 25.7995 12.8594 26.0547C12.9844 26.3151 13.151 26.5286 13.3594 26.6953C13.5729 26.862 13.8411 26.9505 14.1641 26.9609L14 27.8594Z"
@@ -49,7 +49,7 @@
                     </div>
                 </article>
                 <article class="hero-layout-right">
-                    <div class="logo-hero">
+                    <div class="hero-logo">
                         <svg width="53" height="38" viewBox="0 0 53 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14 27.8594C13.4948 27.8438 13.0573 27.7266 12.6875 27.5078C12.3177 27.2891 12.0104 27 11.7656 26.6406C11.5312 26.2969 11.3542 25.9115 11.2344 25.4844C11.1146 25.0625 11.0547 24.6432 11.0547 24.2266V22.9062C11.0547 22.1562 10.875 21.612 10.5156 21.2734C10.1615 20.9349 9.61719 20.763 8.88281 20.7578V19.625C9.61719 19.625 10.1615 19.4583 10.5156 19.125C10.875 18.7865 11.0547 18.2396 11.0547 17.4844V16.1562C11.0547 15.7344 11.1094 15.3047 11.2188 14.8672C11.3333 14.4245 11.513 14.0286 11.7578 13.6797C11.987 13.3464 12.2865 13.0755 12.6562 12.8672C13.026 12.6536 13.474 12.5391 14 12.5234L14.1641 13.4219C13.7891 13.4323 13.4896 13.5208 13.2656 13.6875C13.0469 13.8542 12.8828 14.0651 12.7734 14.3203C12.6589 14.5807 12.5859 14.8724 12.5547 15.1953C12.5234 15.5182 12.5078 15.8385 12.5078 16.1562V17.4844C12.5078 18.1094 12.362 18.6589 12.0703 19.1328C11.7839 19.6016 11.3385 19.9583 10.7344 20.2031C11.3385 20.4427 11.7839 20.7995 12.0703 21.2734C12.3568 21.7422 12.5026 22.2865 12.5078 22.9062V24.2266C12.5078 24.5495 12.5339 24.8698 12.5859 25.1875C12.638 25.5104 12.7292 25.7995 12.8594 26.0547C12.9844 26.3151 13.151 26.5286 13.3594 26.6953C13.5729 26.862 13.8411 26.9505 14.1641 26.9609L14 27.8594Z"
@@ -92,7 +92,7 @@
         <div class="content-wrapper">
             <section class="nav-positioning">
                 <article>
-                    <a href="">
+                    <a href="#">
                         <div class="logo-main">
                             <svg width="53" height="38" viewBox="0 0 53 38" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -141,12 +141,8 @@
             <section id="me" class="me-section">
                 <h2 class="me-h2">Why me</h2>
                 <div class="me-boxes">
-                    <div id="meInteractiv" class="me-interactiv">
-                        <img src="./assets/img/me_located_1.png" alt="located"><span class="color-lightblue">I am
-                            &nbsp;</span>located in Munich.. | hybrid
+                    <div id="meInteractive" class="me-interactive">
                     </div>
-                    <!-- UPDATE NEEDED: Animation JS -->
-
 
                     <div class="me-text">
                         <p>TO BE UPDATED - I had the dream, to gain developer skills.
@@ -155,11 +151,9 @@
                     </div>
                 </div>
                 <div class="btn-me-contact">
-                    <button class="btn-standard" onclick="scrollToTarget(event, 'contact')">
-                        <a href="">
-                            Let's talk
-                        </a>
-                    </button>
+                    <a href="javascript:void(0)" class="btn-standard" onclick="scrollToTarget(event, 'contact')" role="button">
+                        Let's talk
+                    </a>
                 </div>
             </section>
 
@@ -378,16 +372,12 @@
                             <img class="project-content-image project-content-image-border-business"
                                 src="./assets/img/project_kanbanapp_join.png" alt="project game el pollo loco">
                             <div class="project-content-showcase-btn">
-                                <button class="btn-cta" tabindex="0">
-                                    <a href="" target="_blank" tab-index="-1">
-                                        Live Test
-                                    </a>
-                                </button>
-                                <button class="btn-standard">
-                                    <a href="" target="_blank">
-                                        GitHub
-                                    </a>
-                                </button>
+                                <a class="btn-cta" href="" target="_blank" tabindex="0" role="button">
+                                    Live Test
+                                </a>
+                                <a class="btn-standard" href="" target="_blank" role="button">
+                                    GitHub
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -455,16 +445,12 @@
                             <img class="project-content-image project-content-image-border-game"
                                 src="./assets/img/project_game_epl.png" alt="project game el pollo loco">
                             <div class="project-content-showcase-btn">
-                                <button class="btn-cta" tabindex="0">
-                                    <a href="" target="_blank" tab-index="-1">
-                                        Live Test
-                                    </a>
-                                </button>
-                                <button class="btn-standard">
-                                    <a href="" target="_blank">
-                                        GitHub
-                                    </a>
-                                </button>
+                                <a class="btn-cta" href="" target="_blank" tabindex="0" role="button">
+                                    Live Test
+                                </a>
+                                <a class="btn-standard" href="" target="_blank" role="button">
+                                    GitHub
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -476,6 +462,7 @@
                             </li>
                             <li>
                                 <p class="project-content-tab-text">
+                                    <!-- NEED to UPDATE text -->
                                     NEED UPDATE - What are you currently working on and what features are you
                                     implementing? What is
                                     the key to success in your projects? You can mention good planning, code quality and
