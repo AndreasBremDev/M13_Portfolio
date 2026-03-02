@@ -161,7 +161,6 @@ button {
 .hero-layout-left {
     display: flex;
     align-self: flex-end;
-    flex: 1;
 }
 
 .hero-layout-right {
@@ -195,8 +194,6 @@ button {
     transition: transform ease-in 125ms;
 }
 
-
-
 .logo-anta,
 .hero-h1,
 .me-h2 {
@@ -209,7 +206,7 @@ button {
 }
 
 .hero-h2 {
-    font-size: clamp(20px, 2vw, 40px);
+    font-size: clamp(24px, 2vw, 40px);
     font-weight: 400;
 }
 
@@ -380,7 +377,7 @@ button {
 .project-h2,
 .contact-h2 {
     font-family: 'Anta', sans-serif;
-    font-size: 60px;
+    font-size: clamp(32px, 2.5vw, 60px);
     color: var(--primary);
     text-align: center;
 }
@@ -421,7 +418,6 @@ button {
 .skill-icons-section {
     display: flex;
     flex-wrap: wrap;
-    width: 60%;
     gap: 40px;
     flex: 1;
 }
@@ -438,7 +434,7 @@ button {
 }
 
 .skill-text-section {
-    height: 400px;
+    min-height: 400px;
 }
 
 .skill-text-section::before {
@@ -573,6 +569,10 @@ button {
     padding: 0 0 12px 0;
     font-size: 18px;
     text-align: center;
+}
+
+.project-content-technologies-text-mobile{
+    display: none;
 }
 
 .project-content-technologies-icons {

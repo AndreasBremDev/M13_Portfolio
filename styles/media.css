@@ -113,7 +113,7 @@
 
     /* ------------ GENERAL ------------  */
     .content-wrapper {
-        padding: 0 12px;
+        padding: 0 3vw;
     }
 
     /* ------------ HERO section ------------  */
@@ -140,22 +140,101 @@
 
     /* ------------ ME+SKILLS section ------------  */
 
-    .me-section {
-        padding: 0 3vw;
-    }
 
     .me-boxes,
     .skill-boxes {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        text-align: center;
+        padding-top: 32px;
         gap: 32px;
     }
 
     .me-interactive {
         font-size: 18px;
         width: 100%;
+        padding-left: 96px;
     }
+
+    .skill-icons-60 {
+        width: 45px;
+    }
+
+    .skill-icons-section {
+        justify-content: center;
+    }
+
+    .skill-mobile-blue {
+        color: var(--primary);
+    }
+
+    .skill-text-section {
+        border: 1px solid red;
+    }
+
+    /* ------------ PROJECT section ------------  */
+    .project-section>.content-wrapper {
+        padding: 0 0;
+    }
+
+    .project-tabs {
+        padding-top: 32px;
+    }
+
+    .project-h3 {
+        font-size: 18px;
+    }
+
+    .project-header-tab {
+        min-width: 100px;
+        height: 39px;
+    }
+
+    .project-header-tab.active {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .project-content-tab {
+        flex-direction: column-reverse;
+        padding-top: 24px;
+        gap: 24px;
+    }
+
+    .project-content-image {
+        width: 100%;
+    }
+
+    .project-content-technologies-text {
+        font-size: 16px;
+        padding: 0 0 8 px 0
+    }
+
+    .project-content-technologies{
+        display: flex;
+    }
+
+    .project-content-technologies-text-mobile {
+        display: flex;
+        font-size: 16px;
+    }
+
+    .project-content-technologies-text,
+    .project-content-technologies-icons,
+    .project-content-showcase-btn {
+        display: none;
+    }
+
+    .project-content-h3 {
+        font-size: 18px;
+        color: var(--primary)
+    }
+
+    .project-content-tab-text{
+        margin: 8px 0 16px 0;
+        font-size: 16px;
+    }
+
 }
 
 @media(max-width:720px) {
@@ -166,9 +245,12 @@
 
     /* ------------ NAV section ------------  */
 
-    /* ------------ ME section ------------  */
+    /* ------------ ME+SKILL section ------------  */
 
-    /* ------------ SKILLS section ------------  */
+    .btn-me-contact,
+    .skill-icons-text {
+        display: none;
+    }
 
     /* ------------ PROJECT section ------------  */
 
@@ -200,8 +282,53 @@
 
 }
 
+@media(max-width:500px) {
+
+    /* ------------ ME+SKILL section ------------  */
+    .me-interactive {
+        padding-left: 64px;
+    }
+}
+
 @media(max-width:460px) {
     .hero-image-bg-shape {
         width: 100%;
+    }
+
+    /* ------------ ME+SKILL section ------------  */
+    .me-interactive {
+        padding-left: 32px;
+    }
+}
+
+@media(max-width:420px) {
+
+    /* ------------ ME+SKILL section ------------  */
+    .me-interactive {
+        padding-left: 16px;
+    }
+}
+
+@media(max-width:400px) {
+
+    /* ------------ ME+SKILL section ------------  */
+    .skill-icons-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+        width: 100%;
+        flex-wrap: nowrap;
+        flex: none;
+    }
+}
+
+@media(max-width:370px) {
+
+    /* ------------ ME+SKILL section ------------  */
+    .me-interactive {
+        padding-left: 0;
+    }
+
+    .me-interactive img {
+        height: 40px;
     }
 }
