@@ -39,6 +39,7 @@ button {
     max-inline-size: 1920px;
     margin-inline: auto;
     width: 100%;
+    position: relative;
 }
 
 .content-wrapper {
@@ -127,10 +128,16 @@ button {
     height: var(--nav-height);
 }
 
+.hero-logo-mobile {
+    padding-left: 3vw;
+}
+
 .burger-menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-right: 3vw;
+    cursor: pointer;
 }
 
 .burger-stripe {
@@ -391,6 +398,7 @@ button {
 .me-interactive {
     display: flex;
     align-items: center;
+    flex: 1;
     font-size: 30px;
     font-weight: 700;
     height: 64px;
@@ -401,16 +409,13 @@ button {
     margin-top: 24px;
 }
 
-.me-text {
-    width: 45%;
-}
-
 .me-text,
 .skill-text-section,
 .references-text {
     text-wrap: balance;
     font-size: 18px;
     font-weight: 400;
+    flex: 1;
 }
 
 .skill-icons-section {
@@ -418,6 +423,7 @@ button {
     flex-wrap: wrap;
     width: 60%;
     gap: 40px;
+    flex: 1;
 }
 
 .skill-text-section,
