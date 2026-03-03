@@ -1,8 +1,101 @@
 @media (pointer:fine) and (hover: hover) {
 
+    /* ------------ GENERAL ------------  */
+    .btn-cta:hover {
+        background-color: var(--secondary);
+        border: 1px solid var(--secondary);
+    }
+
+    .btn-standard:hover {
+        background-color: var(--btn-hover);
+    }
+
     /* ------------ HERO section ------------  */
+    .hero-btn-down:active svg,
+    .hero-btn-down:hover svg {
+        fill: var(--btn-hover);
+    }
+
     .hero-image-bg-shape:hover::before {
         transform: rotate(-18deg)
+    }
+
+    .hero-logo:hover svg path[transform] {
+        transform: scaleX(1.1);
+    }
+
+    .btn-social-hero[data-icon="email"]:hover {
+        background-image: url('../assets/icons/email_blue_hover.svg');
+    }
+
+    .btn-social-hero[data-icon="git"]:hover {
+        background-image: url('../assets/icons/git_blue_hover.svg');
+    }
+
+    .btn-social-hero[data-icon="linkedin"]:hover {
+        background-image: url('../assets/icons/linkedin_blue_hover.svg');
+    }
+
+    /* ------------ NAV section ------------  */
+    .nav-link-section a:hover {
+        color: var(--secondary)
+    }
+
+    /* ------------ ME / SKILL section ------------  */
+    .skill-text-container:hover::before {
+        transform: rotate(72deg);
+        background: url('../assets/shapes/skill_shape_default_opac0.2.svg') no-repeat bottom center;
+        background-size: contain;
+    }
+
+    /* ------------ REFERENCE section ------------  */
+    .references-text-container:hover::before {
+        transform: rotate(-90deg);
+        background: url('../assets/shapes/references_shape_default_opac0.2.svg') no-repeat bottom center;
+        background-size: contain;
+    }
+
+    /* ------------ CONTACT section ------------  */
+    .contact-mail-phone a:hover:first-child::before {
+        background: url('../assets/icons/icon_email_hover.svg') no-repeat center center / cover;
+    }
+
+    .contact-mail-phone a:hover:last-child::before {
+        background: url('../assets/icons/icon_phone_hover.svg') no-repeat center center / cover;
+    }
+
+    .contact-mail-phone a:hover {
+        color: var(--primary);
+    }
+
+    .contact-mail-phone a:hover svg>path {
+        stroke: var(--primary);
+    }
+
+    .form-group:hover {
+        background-color: var(--btn-hover);
+    }
+
+    .contact-btn-up:active svg,
+    .contact-btn-up:hover svg {
+        fill: var(--btn-hover);
+    }
+
+    /* ------------ FOOTER section ------------  */
+    .footer-legal a:hover {
+        color: var(--secondary);
+    }
+
+    .btn-social-footer[data-icon="email"]:hover {
+        background-image: url('./assets/icons/email_white-black.svg');
+    }
+
+    .btn-social-footer[data-icon="git"]:hover {
+        background-image: url('./assets/icons/git_white-black.svg');
+    }
+
+    .btn-social-footer[data-icon="linkedin"]:hover {
+        background-image: url('./assets/icons/linkedin_white-black.svg');
     }
 }
 
@@ -289,10 +382,6 @@
     .show-when-mobile {
         display: block;
     }
-
-    /* ------------ HERO section ------------  */
-
-    /* ------------ NAV section ------------  */
 
     /* ------------ ME+SKILL section ------------  */
 

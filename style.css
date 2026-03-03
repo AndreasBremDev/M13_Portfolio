@@ -102,8 +102,7 @@ button {
     color: var(--bg-and-main);
 }
 
-.btn-cta:focus-visible,
-.btn-cta:hover {
+.btn-cta:focus-visible {
     background-color: var(--secondary);
     border: 1px solid var(--secondary);
 }
@@ -112,7 +111,7 @@ button {
     color: var(--primary);
 }
 
-.btn-standard:hover {
+.btn-standard:focus-visible {
     background-color: var(--btn-hover);
 }
 
@@ -229,10 +228,6 @@ button {
     transform-origin: center;
 }
 
-.hero-logo:hover svg path[transform] {
-    transform: scaleX(1.1);
-}
-
 .hero-logo svg {
     overflow: visible;
 }
@@ -244,13 +239,6 @@ button {
 .contact-btn-up svg .ignore-fill,
 .hero-btn-down svg .ignore-fill {
     fill: var(--primary);
-}
-
-.contact-btn-up:active svg,
-.hero-btn-down:active svg,
-.contact-btn-up:hover svg,
-.hero-btn-down:hover svg {
-    fill: var(--btn-hover);
 }
 
 .footer-social-group,
@@ -274,24 +262,12 @@ button {
     background-image: url('./assets/icons/email_blue_standard.svg');
 }
 
-.btn-social-hero[data-icon="email"]:hover {
-    background-image: url('./assets/icons/email_blue_hover.svg');
-}
-
 .btn-social-hero[data-icon="git"] {
     background-image: url('./assets/icons/git_blue_standard.svg');
 }
 
-.btn-social-hero[data-icon="git"]:hover {
-    background-image: url('./assets/icons/git_blue_hover.svg');
-}
-
 .btn-social-hero[data-icon="linkedin"] {
     background-image: url('./assets/icons/linkedin_blue_standard.svg');
-}
-
-.btn-social-hero[data-icon="linkedin"]:hover {
-    background-image: url('./assets/icons/linkedin_blue_hover.svg');
 }
 
 
@@ -342,11 +318,8 @@ button {
     z-index: -1;
 }
 
-.nav-link-section a:hover {
-    color: var(--secondary)
-}
-
-/* ------------ ME + SKILL (+partially PROJECT + Reference) section ------------  */
+/* ------------ ME+SKILL section ------------  */
+/* ------------ (+partially PROJECT + Reference section) ------------  */
 
 #me,
 #skills,
@@ -451,12 +424,6 @@ button {
     transition: all ease-in 125ms;
 }
 
-.skill-text-container:hover::before {
-    transform: rotate(72deg);
-    background: url('./assets/shapes/skill_shape_default_opac0.2.svg') no-repeat bottom center;
-    background-size: contain;
-}
-
 .skill-icons {
     display: flex;
     flex-direction: column;
@@ -494,7 +461,7 @@ button {
     max-width: 400px;
 }
 
-/* PROJECT section */
+/* ------------ PROJECT section ------------  */
 
 .project-tabs {
     padding-top: 80px;
@@ -624,7 +591,7 @@ button {
     box-shadow: 0 0 10px rgba(183, 97, 39, 0.6);
 }
 
-/* REFERENCE Section */
+/* ------------ REFERENCE section ------------  */
 
 .references-section {
     margin-top: 80px;
@@ -663,7 +630,6 @@ button {
     cursor: pointer;
 }
 
-
 .references-text-container::before {
     content: '';
     position: absolute;
@@ -675,13 +641,8 @@ button {
     transform-origin: center;
 }
 
-.references-text-container:hover::before {
-    transform: rotate(-90deg);
-    background: url('./assets/shapes/references_shape_default_opac0.2.svg') no-repeat bottom center;
-    background-size: contain;
-}
 
-/* CONTACT me Section */
+/* ------------ CONTACT section ------------  */
 
 .contact-section {
     max-inline-size: 920px;
@@ -736,9 +697,7 @@ button {
     background: url('./assets/icons/icon_email_default.svg') no-repeat center center / cover;
 }
 
-
-.contact-mail-phone a:focus-visible:first-child::before,
-.contact-mail-phone a:hover:first-child::before {
+.contact-mail-phone a:focus-visible:first-child::before {
     background: url('./assets/icons/icon_email_hover.svg') no-repeat center center / cover;
 }
 
@@ -746,17 +705,8 @@ button {
     background: url('./assets/icons/icon_phone_default.svg') no-repeat center center / cover;
 }
 
-.contact-mail-phone a:focus-visible:first-child::before,
-.contact-mail-phone a:hover:last-child::before {
+.contact-mail-phone a:focus-visible:first-child::before {
     background: url('./assets/icons/icon_phone_hover.svg') no-repeat center center / cover;
-}
-
-.contact-mail-phone a:hover {
-    color: var(--primary);
-}
-
-.contact-mail-phone a:hover svg>path {
-    stroke: var(--primary);
 }
 
 .form-label {
@@ -797,7 +747,7 @@ form {
     border: 1px solid var(--primary)
 }
 
-.form-group:hover {
+.form-group:focus-visible {
     background-color: var(--btn-hover);
 }
 
@@ -862,6 +812,10 @@ textarea {
     top: 0;
 }
 
+.contact-btn-up:focus-visible svg {
+    fill: var(--btn-hover);
+}
+
 /* ------------ FOOTER section ------------  */
 
 footer {
@@ -889,7 +843,7 @@ footer {
     color: var(--bg-and-main)
 }
 
-.footer-legal a:hover {
+.footer-legal a:focus-visible {
     color: var(--secondary);
 }
 
@@ -897,7 +851,7 @@ footer {
     background-image: url('./assets/icons/email_gray.svg');
 }
 
-.btn-social-footer[data-icon="email"]:hover {
+.btn-social-footer[data-icon="email"]:focus-visible {
     background-image: url('./assets/icons/email_white-black.svg');
 }
 
@@ -905,7 +859,7 @@ footer {
     background-image: url('./assets/icons/git_gray.svg');
 }
 
-.btn-social-footer[data-icon="git"]:hover {
+.btn-social-footer[data-icon="git"]:focus-visible {
     background-image: url('./assets/icons/git_white-black.svg');
 }
 
@@ -913,14 +867,14 @@ footer {
     background-image: url('./assets/icons/linkedin_gray.svg');
 }
 
-.btn-social-footer[data-icon="linkedin"]:hover {
+.btn-social-footer[data-icon="linkedin"]:focus-visible {
     background-image: url('./assets/icons/linkedin_white-black.svg');
 }
 
 /* ------------ LEGAL section ------------  */
 
 .legal-context {
-    padding-left: clamp(50px, 5.2vw , 100px);
+    padding-left: clamp(50px, 5.2vw, 100px);
     padding-right: clamp(50px, 5.2vw, 100px);
 }
 
@@ -948,19 +902,20 @@ footer {
     padding-bottom: 16px;
 }
 
-.legal-context h3{
+.legal-context h3 {
     font-size: 20px;
     padding-bottom: 8px;
 }
-.legal-context h4{
+
+.legal-context h4 {
     font-size: 18px;
     padding-bottom: 4px;
 }
-.legal-context h5{
+
+.legal-context h5 {
     font-size: 16px;
     padding-bottom: 4px;
 }
-
 
 .legal-context p {
     padding-bottom: 24px;
