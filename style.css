@@ -12,7 +12,7 @@
     --inactive: hsla(206, 16%, 18%, 0.12);
     --error: hsl(8, 76%, 55%);
     --done: hsla(95, 68%, 63%, 1);
-    --section: hsla(203, 17%, 21%);
+    --section: hsl(202, 18%, 21%);
     --btn-hover: hsl(202, 8%, 27%);
     --nav-height: 104px;
     --footer-height: 214px;
@@ -52,6 +52,10 @@ button {
 
 .color-dark {
     color: var(--bg-and-main)
+}
+
+.color-white {
+    color: var(--secondary);
 }
 
 .bounce-page {
@@ -201,7 +205,7 @@ button {
 }
 
 .hero-h1 {
-    font-size: clamp(44px, 4.5vw, 88px);
+    font-size: clamp(48px, 4.5vw, 88px);
     padding: 36px 0;
 }
 
@@ -365,7 +369,7 @@ button {
 
 .me-section,
 .skill-section,
-.skill-text-section,
+.skill-text-container,
 .project-section,
 .references-text-container {
     display: flex;
@@ -407,7 +411,7 @@ button {
 }
 
 .me-text,
-.skill-text-section,
+.skill-text-container,
 .references-text {
     text-wrap: balance;
     font-size: 18px;
@@ -422,7 +426,7 @@ button {
     flex: 1;
 }
 
-.skill-text-section,
+.skill-text-container,
 .references-text-container {
     justify-content: center;
     align-items: center;
@@ -433,11 +437,11 @@ button {
     position: relative;
 }
 
-.skill-text-section {
+.skill-text-container {
     min-height: 400px;
 }
 
-.skill-text-section::before {
+.skill-text-container::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -447,7 +451,7 @@ button {
     transition: all ease-in 125ms;
 }
 
-.skill-text-section:hover::before {
+.skill-text-container:hover::before {
     transform: rotate(72deg);
     background: url('./assets/shapes/skill_shape_default_opac0.2.svg') no-repeat bottom center;
     background-size: contain;
@@ -487,6 +491,7 @@ button {
 
 .skill-text {
     padding: 0 45px;
+    max-width: 400px;
 }
 
 /* PROJECT section */
@@ -554,6 +559,10 @@ button {
     margin: 16px 0 16px 0;
 }
 
+.show-when-mobile {
+    display: none;
+}
+
 .project-content-box-two-showcase {
     display: flex;
     flex-direction: column;
@@ -571,7 +580,9 @@ button {
     text-align: center;
 }
 
-.project-content-technologies-text-mobile{
+.project-content-technologies-h3-mobile,
+.project-content-technologies-text-mobile,
+.project-content-technologies-duration-mobile {
     display: none;
 }
 
@@ -623,6 +634,8 @@ button {
 .references-h3 {
     font-size: 32px;
     text-align: center;
+    color: var(--primary);
+    font-weight: 400;
 }
 
 .references-box {
@@ -694,14 +707,56 @@ button {
     display: flex;
     flex-direction: column;
     text-align: start;
+    gap: 16px;
+}
+
+.contact-message {
+    color: var(--primary);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 16px;
 }
 
 .contact-mail-phone a {
     color: var(--secondary);
+    position: relative;
+}
+
+.contact-mail-phone a:first-child::before,
+.contact-mail-phone a:last-child::before {
+    content: '';
+    width: 20px;
+    min-width: 20px;
+    height: 22px;
+    transform: translateY(4px);
+    display: inline-flex;
+}
+
+.contact-mail-phone a:first-child::before {
+    background: url('./assets/icons/icon_email_default.svg') no-repeat center center / cover;
+}
+
+
+.contact-mail-phone a:focus-visible:first-child::before,
+.contact-mail-phone a:hover:first-child::before {
+    background: url('./assets/icons/icon_email_hover.svg') no-repeat center center / cover;
+}
+
+.contact-mail-phone a:last-child::before {
+    background: url('./assets/icons/icon_phone_default.svg') no-repeat center center / cover;
+}
+
+.contact-mail-phone a:focus-visible:first-child::before,
+.contact-mail-phone a:hover:last-child::before {
+    background: url('./assets/icons/icon_phone_hover.svg') no-repeat center center / cover;
 }
 
 .contact-mail-phone a:hover {
     color: var(--primary);
+}
+
+.contact-mail-phone a:hover svg>path {
+    stroke: var(--primary);
 }
 
 .form-label {
@@ -715,13 +770,23 @@ select {
     font: inherit;
 }
 
+input::placeholder,
+textarea::placeholder {
+    opacity: 0;
+}
+
 form {
     display: grid;
+    grid-template-rows: auto 164px auto;
     gap: 16px;
 
     @media (width > 720px) {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+.textarea-height {
+    min-height: calc(100% - 18px);
 }
 
 .form-group {
@@ -765,9 +830,9 @@ textarea {
     justify-self: end;
 }
 
-.form-policy label {
-    display: inline-flex;
+.form-policy-label {
     align-items: center;
+    text-wrap: balance;
 }
 
 .chb-policy {
@@ -779,6 +844,7 @@ textarea {
     background: url('./assets/icons/checkbox_unchecked_default.svg') no-repeat center center / cover;
     content: '';
     width: 24px;
+    min-width: 24px;
     height: 24px;
     display: inline-flex;
     align-items: center;
@@ -796,7 +862,7 @@ textarea {
     top: 0;
 }
 
-/* FOOTER Section */
+/* ------------ FOOTER section ------------  */
 
 footer {
     background-color: var(--primary);
@@ -817,6 +883,14 @@ footer {
     flex-direction: column;
     gap: 16px;
     color: var(--bg-and-main);
+}
+
+.footer-legal a {
+    color: var(--bg-and-main)
+}
+
+.footer-legal a:hover {
+    color: var(--secondary);
 }
 
 .btn-social-footer[data-icon="email"] {
@@ -841,4 +915,62 @@ footer {
 
 .btn-social-footer[data-icon="linkedin"]:hover {
     background-image: url('./assets/icons/linkedin_white-black.svg');
+}
+
+/* ------------ LEGAL section ------------  */
+
+.legal-context {
+    padding-left: clamp(50px, 5.2vw , 100px);
+    padding-right: clamp(50px, 5.2vw, 100px);
+}
+
+.legal-btn-back {
+    margin: -12px;
+    padding: 16px 0 16px 0;
+    display: none;
+}
+
+.legal-context h1,
+.legal-context h2,
+.legal-context h3 {
+    color: var(--primary);
+}
+
+.legal-context h1 {
+    font-family: 'Anta', sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.legal-context h2 {
+    font-size: 24px;
+    padding-bottom: 16px;
+}
+
+.legal-context h3{
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+.legal-context h4{
+    font-size: 18px;
+    padding-bottom: 4px;
+}
+.legal-context h5{
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+
+
+.legal-context p {
+    padding-bottom: 24px;
+}
+
+.legal-context ul {
+    padding-left: 3vw;
+    padding-bottom: 24px;
+}
+
+.legal-context a {
+    color: var(--primary);
 }
