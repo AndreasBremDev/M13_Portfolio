@@ -16,7 +16,7 @@
         fill: var(--btn-hover);
     }
 
-    .hero-image-bg-shape:hover::before {
+    .hero-image-shape-container-front:hover::before {
         transform: rotate(-18deg)
     }
 
@@ -170,7 +170,7 @@
 @media(max-width:1024px) {
 
     /* ------------ HERO section ------------  */
-    .hero-image-bg-shape {
+    .hero-image-shape-container-front {
 
         -webkit-mask-image: url('../assets/shapes/hero_shape_1_default.svg');
         mask-image: url('../assets/shapes/hero_shape_1_default.svg');
@@ -231,10 +231,13 @@
     .hero-layout {
         grid-template-columns: 1fr;
         width: 100%;
-        padding-top: var(--nav-height);
     }
 
-    .hero-image-bg-shape {
+    .hero-layout-left{
+        justify-content: center;
+    }
+
+    .hero-image-shape-container-front {
         width: 90vw;
     }
 
@@ -360,8 +363,8 @@
 
     /* ------------ LEGAL ------------  */
     .legal-btn-back {
-        margin-top: calc(var(--nav-height) + 16px);
         display: block;
+        padding-top: 16px;
     }
 
     .legal-context h1 {
