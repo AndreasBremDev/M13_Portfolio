@@ -567,13 +567,13 @@ button {
 }
 
 .project-content-box-one-liststyle {
-    list-style-position: outside;
     padding-left: 48px;
     flex-grow: 3
 }
 
 .project-content-box-one-liststyle li:nth-child(2n+1) {
     list-style-image: url('./assets/shapes/project_shape_liststyle.svg');
+    list-style-position: outside;
 }
 
 .project-content-box-one-liststyle li:nth-child(2n) {
@@ -644,10 +644,19 @@ button {
     margin-bottom: 102px;
 }
 
-.project-content-showcase-btn {
-    display: flex;
+.project-content-showcase-btns,
+.project-content-showcase-btns-mobile {
     gap: 40px;
+}
+.project-content-showcase-btns {
+    display: flex;
     margin: 34px 0 28px 0;
+}
+
+.project-content-showcase-btns-mobile {
+    justify-content: center;
+    display: none;
+    margin: 0 0 38px 0;
 }
 
 .project-content-image-border-business {

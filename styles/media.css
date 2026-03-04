@@ -349,7 +349,8 @@
 
     .project-content-technologies-text,
     .project-content-technologies-icons,
-    .project-content-showcase-btn {
+    .project-content-showcase-btns,
+    .li-items-duration {
         display: none;
     }
 
@@ -366,12 +367,25 @@
         font-size: 16px;
     }
 
-    .project-content-box-one-liststyle:nth-child(2n+1) {
+    .project-content-box-one-liststyle li:nth-child(2n+1) {
         list-style-position: inside;
     }
 
     .project-content-box-one-liststyle {
         padding-left: 0px;
+    }
+
+    .project-content-showcase-btns-mobile{
+        display: flex;
+    }
+
+    .bg-color-dark{
+        border-radius: 0 30px 30px 30px;
+    }
+
+    .coming-soon {
+        min-width: unset;
+        margin-bottom: unset;
     }
 
     /* ------------ LEGAL ------------  */
