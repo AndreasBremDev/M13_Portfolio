@@ -116,39 +116,78 @@ button {
 }
 
 
-/* ------------ HERO section ------------  */
-
+/* ------------ HERO section MOBILE ------------  */
 .hero-mobile-top {
     display: none;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-and-main);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
     height: var(--nav-height);
-}
-
-.hero-logo-mobile {
-    padding-left: 3vw;
 }
 
 .burger-menu {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
-    padding-right: 3vw;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
 
 .burger-stripe {
     background-color: var(--secondary);
     height: 2px;
     width: 30px;
+    transition: 0.4s;
+    transform-origin: left;
 }
 
+.burger-menu.change .burger-top {
+    transform: translate(0, 3px) rotate(45deg);
+}
+
+.burger-menu.change .burger-middle {
+    opacity: 0;
+}
+
+.burger-menu.change .burger-bottom {
+    transform: rotate(-45deg);
+}
+
+.mobile-link-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mobile-link-section a {
+    font-size: 22px;
+}
+
+.flip-card {
+    width: 290px;
+    height: 290px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.show .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* ------------ HERO section ------------  */
 .hero-height {
     height: calc(100dvh - var(--nav-height));
     position: relative;
@@ -173,21 +212,25 @@ button {
     align-items: center;
 }
 
-.hero-image-bg-shape {
-    position: relative;
+.hero-image-shape-container-front,
+.hero-image-shape-container-back {
+    position: absolute;
     display: flex;
     justify-content: center;
-    width: 100%;
     aspect-ratio: 1/1;
     max-height: calc(100dvh - 104px);
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.hero-image {
-    object-fit: cover;
-    display: block;
+.hero-image-shape-container-back {
+    transform: rotateY(180deg);
 }
 
-.hero-image-bg-shape::before {
+.hero-image-shape-container-front::before,
+.hero-image-shape-container-back::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -195,6 +238,15 @@ button {
     background-size: contain;
     z-index: -1;
     transition: transform ease-in 125ms;
+}
+
+.hero-image-shape-container-back::before {
+    transform: scaleX(-1);
+}
+
+.hero-image {
+    object-fit: cover;
+    display: block;
 }
 
 .logo-anta,

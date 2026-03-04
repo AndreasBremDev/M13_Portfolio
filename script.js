@@ -213,3 +213,9 @@ function checkIfVisibleAndStop(intervalId, resolve) {
     }
     return false;
 }
+
+function toggleMobileMenu(x) {
+    x.classList.toggle("change");
+    let flipCard = document.getElementById('flipCard');
+    flipCard.classList.toggle('show');
+}
