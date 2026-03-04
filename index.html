@@ -59,17 +59,17 @@
                                 <article class="mobile-link-section">
                                     <a href="javascript:void(0)"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')" class="nav-links"
-                                        aria-selected="false">
+                                        aria-selected="false" role="button">
                                         Why me
                                     </a>
                                     <a href="javascript:void(0)"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')"
-                                        class="nav-links" aria-selected="false">
+                                        class="nav-links" aria-selected="false" role="button">
                                         Skills
                                     </a>
                                     <a href="javascript:void(0)"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')"
-                                        class="nav-links" aria-selected="false">
+                                        class="nav-links" aria-selected="false" role="button">
                                         Projects
                                     </a>
                                     <a href="javascript:void(0)"
@@ -77,8 +77,11 @@
                                         class="nav-links" aria-selected="false">
                                         Contact
                                     </a>
-                                    <article>
-                                        DE EN
+                                    <article class="mobile-language">
+                                        <button onclick="toggleClassActive(event, 'language-tab')"
+                                            class="language-tab">DE</button>
+                                        <button onclick="toggleClassActive(event, 'language-tab')"
+                                            class="language-tab">EN</button>
                                     </article>
                                 </article>
                             </div>
@@ -166,8 +169,9 @@
                         Contact
                     </a>
                 </article>
-                <article>
-                    DE EN
+                <article class="mobile-language">
+                    <button onclick="toggleClassActive(event, 'language-tab')" class="language-tab">DE</button>
+                    <button onclick="toggleClassActive(event, 'language-tab')" class="language-tab">EN</button>
                 </article>
             </section>
         </div>
@@ -182,7 +186,7 @@
                     </div>
 
                     <div class="me-text">
-                        <p>TO BE UPDATED - I had the dream, to gain developer skills.
+                        <p>When I got the opportunity I took it and  to gain developer skills.
                             And finally when the doors opened, I took the opportunity
                             and now I am a frontend developer.</p>
                     </div>
@@ -344,10 +348,10 @@
                             </li>
                             <li>
                                 <p class="project-content-tab-text">
-                                    JOIN is a task management app, inspired by Kanban. It was designed and implemented
+                                    It's a TASK MANAGEMENT business app, inspired by Kanban, and implemented
                                     as a Team project.
                                     You can create and organize tasks using drag and drop functions, assign users and
-                                    categories.</p>
+                                    categories. Furthermore edit the task-card and add subtasks as well</p>
                             </li>
                             <li>
                                 <h3 class="project-content-h3">Work process</h3>
@@ -424,9 +428,9 @@
                             </li>
                             <li>
                                 <p class="project-content-tab-text">
-                                    EL POLLO LOCO is a 2D Jump-and-Run game, based on an Object-Oriented Programming
-                                    approach.
-                                    Help Pepe to fight through the level, by throwing bottles of hot salsa sauce.</p>
+                                    El Pollo Loco is a 2D JUMP'n'RUN game, based on ojectoriented programming.
+                                    Help Pepe to fight through the level, throwing bottles of hot salsa sauce and defeat
+                                    the endboss.</p>
                             </li>
                             <li>
                                 <h3 class="project-content-h3">Work process</h3>
