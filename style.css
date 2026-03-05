@@ -174,7 +174,7 @@ button {
     gap: 8px;
 }
 
-.language-tab{
+.language-tab {
     position: relative;
     width: 40px;
     height: 32px;
@@ -648,6 +648,7 @@ button {
 .project-content-showcase-btns-mobile {
     gap: 40px;
 }
+
 .project-content-showcase-btns {
     display: flex;
     margin: 34px 0 28px 0;
@@ -736,8 +737,13 @@ button {
 }
 
 .contact-text,
-.contact-mail-phone {
+.contact-mail-phone,
+.error-message-text {
     padding-left: 26px;
+}
+
+.error-message-text {
+    color: var(--error);
 }
 
 .contact-mail-phone {
@@ -781,7 +787,7 @@ button {
     background: url('./assets/icons/icon_phone_default.svg') no-repeat center center / cover;
 }
 
-.contact-mail-phone a:focus-visible:first-child::before {
+.contact-mail-phone a:focus-visible:last-child::before {
     background: url('./assets/icons/icon_phone_hover.svg') no-repeat center center / cover;
 }
 
@@ -861,12 +867,13 @@ textarea {
     text-wrap: balance;
 }
 
-.chb-policy {
-    visibility: hidden;
-    cursor: pointer;
+.form-chb-policy {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.chb-policy+label::before {
+.form-chb-policy+label::before {
     background: url('./assets/icons/checkbox_unchecked_default.svg') no-repeat center center / cover;
     content: '';
     width: 24px;
@@ -878,7 +885,7 @@ textarea {
     cursor: pointer;
 }
 
-.chb-policy:checked+label::before {
+.form-chb-policy:checked+label::before {
     background: url('./assets/icons/checkbox_checked_default.svg') no-repeat center center / cover;
 }
 

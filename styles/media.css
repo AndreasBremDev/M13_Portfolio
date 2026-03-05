@@ -200,6 +200,13 @@
         padding-right: 0;
     }
 
+    #me,
+    #skills,
+    #projects,
+    #contact {
+        scroll-margin-top: 64px;
+    }
+
     /* ------------ HERO section ------------  */
 
     .hero-image-shape-container-front {
@@ -212,6 +219,7 @@
         -webkit-mask-position: bottom center;
         mask-position: bottom center;
     }
+
     .hero-image-shape-container-front,
     .hero-image-shape-container-back {
         width: 100%;
@@ -375,11 +383,11 @@
         padding-left: 0px;
     }
 
-    .project-content-showcase-btns-mobile{
+    .project-content-showcase-btns-mobile {
         display: flex;
     }
 
-    .bg-color-dark{
+    .bg-color-dark {
         border-radius: 0 30px 30px 30px;
     }
 

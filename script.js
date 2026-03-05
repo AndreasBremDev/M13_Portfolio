@@ -96,17 +96,17 @@ function setActiveAndScrollToTarget(ev, navTabs, targetId) {
 
 function toggleClassActive(ev, tabs) {
     let tab = document.getElementsByClassName(tabs);
+    let targetElement = ev.currentTarget;
     for (let i = 0; i < tab.length; i++) {
         tab[i].classList.remove("active");
-        tab[i].setAttribute("aria-selected", "false");
+        // (targetElement.tagName !== "BUTTON") && tab[i].setAttribute("aria-selected", "false");
     }
-    let targetElement = ev.currentTarget;
     if (targetElement.dataset.project) {
         targetElement.parentElement.classList.add("active");
-        targetElement.parentElement.setAttribute("aria-selected", "true");
+        // targetElement.parentElement.setAttribute("aria-selected", "true");
     } else {
         targetElement.classList.add("active");
-        targetElement.setAttribute("aria-selected", "true");
+        // (targetElement.tagName !== "BUTTON") && targetElement.setAttribute("aria-selected", "true");
     }
 }
 
@@ -123,12 +123,13 @@ function showContentTab(contentTabs, targetId) {
 function scrollToTarget(ev, targetId) {
     ev.preventDefault();
     let target = document.getElementById(targetId);
-    target.scrollIntoView({ behavior: "smooth" })
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
     window.addEventListener("scrollend", () => {
         requestAnimationFrame(() => {
             bounceWholePage();
         });
     }, { once: true });
+    target.focus();
 }
 
 function bounceWholePage() {
@@ -220,7 +221,39 @@ function checkIfVisibleAndStop(intervalId, resolve) {
     return false;
 }
 
-function toggleMobileMenu(x) {
-    x.classList.toggle("change");
+function toggleMobileMenu(id) {
+    let burgerMenu = document.getElementById(id);
+    burgerMenu.classList.toggle("change");
+    burgerMenu.setAttribute("aria-expanded", burgerMenu.classList.contains("change") ? "true" : "false");
     flipCard.classList.toggle('show');
+    if (burgerMenu.classList.contains("change")) {
+        setMenuTabbable(true);
+        document.getElementById('mobileNavLinkOne').focus();
+    } else {
+        setMenuTabbable(false);
+        burgerMenu.focus();
+    }
 }
+
+function setMenuTabbable(isTabbable) {
+    const menuLinks = document.querySelectorAll('#mobileNavMenu a, #mobileNavMenu button');
+    menuLinks.forEach(link => {
+        link.tabIndex = isTabbable ? 0 : -1;
+    });
+}
+
+function handleKeydownEnterSpace(ev, thisElem) {
+    if (ev.key === 'Enter') {
+        ev.preventDefault();
+        const action = thisElem.getAttribute('data-action');
+        if (action) {
+            eval(action);
+        }
+    }
+    if (ev.key === 'Escape' && thisElem.classList.contains("nav-links")) {
+        toggleMobileMenu('burgerMenu');
+    }
+}
+
+// function SETLANGUAGE() {}
+// mind: aria-selected="" setzen
