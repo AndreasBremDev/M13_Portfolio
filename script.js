@@ -71,8 +71,70 @@ let observerMeInteractive = new IntersectionObserver((entries) => {
         }
     });
 });
-
 observerMeInteractive.observe(meInteractive);
+/** Validates name format (with Unicode support) */
+const isNameValid = val => /^[A-Z\-a-zÄÖÜäöüß\p{M}]{3,30}( [A-Z\-a-zÄÖÜäöüß\p{M}]{3,30})?$/u.test(val);
+/** Validates email address format with length constraints */
+const isEmailValid = val => /^(?=[a-zA-Z0-9@._%+-]{3,30}$)(?=[a-zA-Z0-9._%+-]{3,30}@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.(?!\.)[a-zA-Z]{2,3}(\.(?!\.)(?:uk|jp|in|au|at))?$/.test(val);
+/** Validates checkbox is checked */
+const isCheckboxValid = () => document.getElementById('chb-policy').checked;
+/** Validates text field input with constraints */
+const isTextFieldValid = val => val.length >= 12 && val.length <= 250 && !/<[^>]+>|[<>"'\/]|\\u00(?:3[cC]|3[eE]|3[dD]|2[fF]|2[2]|2[7])|\\x3[cC]|\\x3[eE]|\\x3[dD]|\\x2[fF]|\\x22|\\x27|&lt;|&gt;|&quot;|&apos;|&#0*60;|&#0*62;|&#0*34;|&#0*39;|&#0*47;|&#x0*3[cC];|&#x0*3[eE];|&#x0*3[dD];|&#x0*2[fF];|&#x0*22;|&#x0*27;|(style|script|onerror|onclick|javascript:)/i.test(val);
+let bool = [0, 0, 0, 0]
+
+/**
+ * Validates an input field using a provided validation function
+ * @param {string} inputId - The ID of the input element
+ * @param {string} errMsgId - The ID of the error message element
+ * @param {Function} validateFn - The validation function to use
+ * @param {number} boolIndex - The index in the bool array to update
+ * @param {string} errMsg - The error message to display
+ * @param {boolean} shouldCheckAll - Whether to check all validations after this one
+ * @returns {number} The validation result (0 or 1)
+ */
+function validateField(inputId, errMsgId, validateFn, boolIndex, errMsg, shouldCheckAll = true) {
+    let input = document.getElementById(inputId);
+    let errMsgElem = document.getElementById(errMsgId);
+    if (validateFn(input.value.trim())) {
+        actionsWhenValidationIsTrue_validateField(errMsgElem, boolIndex, input, inputId);
+    } else {
+        actionWhenValidationIsFalse_validateField(errMsgElem, errMsg, boolIndex, input, inputId);
+    }
+    if (shouldCheckAll) { checkAllValidations_validateField() };
+    return bool[boolIndex];
+}
+
+function actionsWhenValidationIsTrue_validateField(errMsgElem, boolIndex, input, inputId) {
+    errMsgElem.innerText = '';
+    bool[boolIndex] = 1;
+    input.classList.remove('errorBorder');
+    let label = document.querySelector('label[for="chb-policy"]');
+    inputId === 'chb-policy' && label.classList.remove('invalid');
+}
+
+function actionWhenValidationIsFalse_validateField(errMsgElem, errMsg, boolIndex, input, inputId) {
+    errMsgElem.innerText = errMsg;
+    bool[boolIndex] = 0;
+    input.classList.add('errorBorder');
+    let label = document.querySelector('label[for="chb-policy"]');
+    inputId === 'chb-policy' && label.classList.add('invalid');
+}
+
+/**
+ * Checks all validations and enables/disables the form send button
+ */
+function checkAllValidations_validateField() {
+    let signUpBtn = document.getElementById('form-btn-send');
+    let allBoolEqualOne = bool.every(el => el === 1);
+    if (allBoolEqualOne) {
+        signUpBtn.disabled = false;
+        signUpBtn.setAttribute('aria-disabled', 'false');
+    } else {
+        signUpBtn.disabled = true;
+        signUpBtn.setAttribute('aria-disabled', 'true');
+    }
+}
+
 function showProject(ev) {
     let projectTabs = ev.target.dataset.project;
     let contentTabs = ev.target.dataset.content;
@@ -99,14 +161,11 @@ function toggleClassActive(ev, tabs) {
     let targetElement = ev.currentTarget;
     for (let i = 0; i < tab.length; i++) {
         tab[i].classList.remove("active");
-        // (targetElement.tagName !== "BUTTON") && tab[i].setAttribute("aria-selected", "false");
     }
     if (targetElement.dataset.project) {
         targetElement.parentElement.classList.add("active");
-        // targetElement.parentElement.setAttribute("aria-selected", "true");
     } else {
         targetElement.classList.add("active");
-        // (targetElement.tagName !== "BUTTON") && targetElement.setAttribute("aria-selected", "true");
     }
 }
 
@@ -126,17 +185,18 @@ function scrollToTarget(ev, targetId) {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
     window.addEventListener("scrollend", () => {
         requestAnimationFrame(() => {
-            bounceWholePage();
+            bounceWholePage(target);
         });
     }, { once: true });
-    target.focus();
 }
 
-function bounceWholePage() {
+function bounceWholePage(target) {
     let main = document.querySelector("main");
     main.classList.add("bounce-page");
     setTimeout(() => {
         main.classList.remove("bounce-page");
+        target.focus();
+        target.blur();
     }, 300);
 }
 
@@ -252,6 +312,18 @@ function handleKeydownEnterSpace(ev, thisElem) {
     }
     if (ev.key === 'Escape' && thisElem.classList.contains("nav-links")) {
         toggleMobileMenu('burgerMenu');
+    }
+}
+
+function sendForm() {
+    if (bool.every(el => el === 1)) {
+    console.log('Testing SEND FORM, sendForm()');
+    document.getElementById('text').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('textarea').value = '';
+    document.getElementById('checkbox').checked = false;
+    } else {
+        console.log('Form is not valid, cannot send.');
     }
 }
 

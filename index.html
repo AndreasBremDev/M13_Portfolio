@@ -14,6 +14,7 @@
 
     <script src="./script.js" defer></script>
 
+    <style></style>
 </head>
 
 <body>
@@ -709,31 +710,36 @@
                     </div>
                 </div>
 
-                <form>
+                <form onsubmit="sendForm(); return false;" novalidate>
                     <div>
                         <label for="name" class="form-label color-lightblue">Your Name</label>
                         <input type="text" id="name" class="form-group" placeholder="Your name" maxlength="30"
-                            aria-required="true">
+                            aria-required="true" autocomplete="off"
+                            onblur="validateField('name', 'errMsgText', isNameValid, 0, 'name: at least 3 letters')">
                     </div>
                     <div>
                         <label for="email" class="form-label color-lightblue">Your Email</label>
                         <input type="email" id="email" class="form-group" placeholder="Your email" maxlength="30"
-                            aria-required="true">
+                            aria-required="true" autocomplete="off"
+                            onblur="validateField('email', 'errMsgText', isEmailValid, 1, 'email: incorrect input')">
                     </div>
                     <div class="form-stretch">
                         <label for="textarea" class="form-label color-lightblue">Your Message</label>
                         <textarea id="textarea" class="form-group textarea-height" placeholder="Your message"
-                            maxlength="250" aria-required="true"></textarea>
+                            maxlength="250" aria-required="true" autocomplete="off"
+                            onblur="validateField('textarea', 'errMsgText', isTextFieldValid, 2, 'message: write me more')"></textarea>
                     </div>
                     <div class="form-stretch form-policy">
-                        <input type="checkbox" id="chb-policy" class="form-chb-policy" aria-required="true">
+                        <input type="checkbox" id="chb-policy" class="form-chb-policy" aria-required="true"
+                        onchange="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')"
+                        onblur="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')">
                         <label for="chb-policy" class="form-policy-label"> I've read the&nbsp;<a
-                                href=""><span class="color-lightblue">privacy
+                                href="./legal_en.html"><span class="color-lightblue">privacy
                                     policy</span></a>&nbsp;and agree to the processing of my data as outlined.</label>
                     </div>
-                    <div id="errMsgText" class="form-stretch error-message-text" aria-live="polite">Test Error Message
+                    <div id="errMsgText" class="form-stretch error-message-text" aria-live="polite">
                     </div>
-                    <button class="form-stretch btn-standard form-button" aria-label="send message">
+                    <button type="submit" id="form-btn-send" class="form-stretch btn-standard form-button" role="alert" aria-label="send message" disabled>
                         send
                     </button>
                 </form>

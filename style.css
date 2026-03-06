@@ -742,10 +742,6 @@ button {
     padding-left: 26px;
 }
 
-.error-message-text {
-    color: var(--error);
-}
-
 .contact-mail-phone {
     display: flex;
     flex-direction: column;
@@ -826,7 +822,11 @@ form {
     box-sizing: border-box;
     height: 60px;
     border-radius: 30px;
-    border: 1px solid var(--primary)
+    border: 1px solid var(--primary);
+}
+
+.errorBorder {
+    border: 1px solid var(--error);
 }
 
 .form-group:focus-visible {
@@ -862,6 +862,16 @@ textarea {
     justify-self: end;
 }
 
+.form-button[disabled] {
+    color: var(--btn-hover);
+    border: 1px solid var(--btn-hover);
+}
+
+.form-button[disabled]:hover {
+    background-color: var(--bg-and-main);
+    cursor: auto;
+}
+
 .form-policy-label {
     align-items: center;
     text-wrap: balance;
@@ -870,7 +880,13 @@ textarea {
 .form-chb-policy {
     position: absolute;
     opacity: 0;
-    pointer-events: none;
+}
+
+.form-chb-policy:focus-visible+label::before {
+    outline-offset: 2px;
+    outline: -webkit-focus-ring-color auto 1px;
+    outline: 1px solid black, 1px solid white;
+    border-radius: 5px;
 }
 
 .form-chb-policy+label::before {
@@ -889,6 +905,10 @@ textarea {
     background: url('./assets/icons/checkbox_checked_default.svg') no-repeat center center / cover;
 }
 
+.form-chb-policy+label.invalid::before {
+    background: url('./assets/icons/checkbox_unchecked_error.svg') no-repeat center center / cover;
+}
+
 .contact-btn-up {
     position: absolute;
     right: -37px;
@@ -897,6 +917,13 @@ textarea {
 
 .contact-btn-up:focus-visible svg {
     fill: var(--btn-hover);
+}
+
+.error-message-text {
+    height: 18px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: var(--error);
 }
 
 /* ------------ FOOTER section ------------  */
