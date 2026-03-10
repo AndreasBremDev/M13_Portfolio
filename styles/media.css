@@ -91,15 +91,15 @@
     }
 
     .btn-social-footer[data-icon="email"]:hover {
-        background-image: url('./assets/icons/email_white-black.svg');
+        background-image: url('../assets/icons/email_white-black.svg');
     }
 
     .btn-social-footer[data-icon="git"]:hover {
-        background-image: url('./assets/icons/git_white-black.svg');
+        background-image: url('../assets/icons/git_white-black.svg');
     }
 
     .btn-social-footer[data-icon="linkedin"]:hover {
-        background-image: url('./assets/icons/linkedin_white-black.svg');
+        background-image: url('../assets/icons/linkedin_white-black.svg');
     }
 }
 

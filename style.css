@@ -781,6 +781,7 @@ button {
     height: 22px;
     transform: translateY(4px);
     display: inline-flex;
+    margin-right: 4px;
 }
 
 .contact-mail-phone a:first-child::before {
