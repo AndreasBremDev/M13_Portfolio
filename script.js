@@ -1,77 +1,10 @@
-
-let animationMeLocation = [
-    '<img src="./assets/img/me_located_1.png" alt="icon showing a located needle">',
-    '<span class="color-lightblue">I&nbsp;</span>',
-    '<span class="color-lightblue">a</span>',
-    '<span class="color-lightblue">m&nbsp;</span>',
-    '<span>l</span>',
-    '<span>o</span>',
-    '<span>c</span>',
-    '<span>a</span>',
-    '<span>t</span>',
-    '<span>e</span>',
-    '<span>d</span>',
-    '<span>&nbsp;</span>',
-    '<span>i</span>',
-    '<span>n&nbsp;</span>',
-    '<span>M</span>',
-    '<span>u</span>',
-    '<span>n</span>',
-    '<span>i</span>',
-    '<span>c</span>',
-    '<span>h&nbsp;</span>',
-    '<span class="color-lightblue">.</span>',
-    '<span class="color-lightblue">.</span>',
-    '<span class="color-lightblue">.</span>'
-];
-let animationMeHybrid = [
-    '<img src="./assets/img/me_remote.png" alt="icon PC indicating remote work">',
-    '<span class="color-lightblue">I&nbsp;</span>',
-    '<span class="color-lightblue">a</span>',
-    '<span class="color-lightblue">m&nbsp;</span>',
-    '<span>o</span>',
-    '<span>p</span>',
-    '<span>e</span>',
-    '<span>n&nbsp;</span>',
-    '<span>t</span>',
-    '<span>o&nbsp;</span>',
-    '<span>w</span>',
-    '<span>o</span>',
-    '<span>r</span>',
-    '<span>k&nbsp;</span>',
-    '<span>h</span>',
-    '<span>y</span>',
-    '<span>b</span>',
-    '<span>r</span>',
-    '<span>i</span>',
-    '<span>d&nbsp;</span>',
-    '<span class="color-lightblue">.</span>',
-    '<span class="color-lightblue">.</span>',
-    '<span class="color-lightblue">.</span>'
-];
-let animationBlinkingCursor = [
-    '<span class="color-lightblue">&#124;</span>'
-];
-let meInteractive = document.getElementById('meInteractive');
-let isVisible_meInteractive = false;
-let isRunningAnimation = false;
 let flipCard = document.getElementById('flipCard');
 let burgerMenu = document.querySelector('.burger-menu');
-let observerMeInteractive = new IntersectionObserver((entries) => {
-    entries.forEach(async entry => {
-        if (entry.isIntersecting) {
-            isVisible_meInteractive = true;
-            if (!isRunningAnimation) {
-                isRunningAnimation = true;
-                await runAnimationSequence();
-                isRunningAnimation = false;
-            }
-        } else {
-            isVisible_meInteractive = false;
-        }
-    });
-});
-observerMeInteractive.observe(meInteractive);
+let isEnglish = false;
+let tranlations= {
+    
+}
+
 /** Validates name format (with Unicode support) */
 const isNameValid = val => /^[A-Z\-a-zÄÖÜäöüß\p{M}]{3,30}( [A-Z\-a-zÄÖÜäöüß\p{M}]{3,30})?$/u.test(val);
 /** Validates email address format with length constraints */
@@ -81,6 +14,115 @@ const isCheckboxValid = () => document.getElementById('chb-policy').checked;
 /** Validates text field input with constraints */
 const isTextFieldValid = val => val.length >= 12 && val.length <= 250 && !/<[^>]+>|[<>"'\/]|\\u00(?:3[cC]|3[eE]|3[dD]|2[fF]|2[2]|2[7])|\\x3[cC]|\\x3[eE]|\\x3[dD]|\\x2[fF]|\\x22|\\x27|&lt;|&gt;|&quot;|&apos;|&#0*60;|&#0*62;|&#0*34;|&#0*39;|&#0*47;|&#x0*3[cC];|&#x0*3[eE];|&#x0*3[dD];|&#x0*2[fF];|&#x0*22;|&#x0*27;|(style|script|onerror|onclick|javascript:)/i.test(val);
 let bool = [0, 0, 0, 0]
+
+function init() {
+    getFromLocalStorageIsEnglish();
+    setDocumentLanguage();
+}
+
+
+function showProject(ev) {
+    let projectTabs = ev.target.dataset.project;
+    let contentTabs = ev.target.dataset.content;
+    let targetId = ev.target.dataset.target;
+    toggleClassActive(ev, projectTabs);
+    showContentTab(contentTabs, targetId);
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 960 && flipCard.classList.contains('show')) {
+        burgerMenu.classList.toggle("change");
+        flipCard.classList.remove('show');
+    }
+});
+
+function setActiveAndScrollToTarget(ev, navTabs, targetId) {
+    ev.preventDefault();
+    toggleClassActive(ev, navTabs);
+    scrollToTarget(ev, targetId);
+}
+
+function toggleClassActive(ev, tabs) {
+    let tab = document.getElementsByClassName(tabs);
+    let targetElement = ev.currentTarget;
+    for (let i = 0; i < tab.length; i++) {
+        tab[i].classList.remove("active");
+    }
+    if (targetElement.dataset.project) {
+        targetElement.parentElement.classList.add("active");
+    } else {
+        targetElement.classList.add("active");
+        (targetElement.id === 'selectMobileDE' || targetElement.id === 'selectDE') ? isEnglish = false : isEnglish = true;
+        (targetElement.id === 'selectMobileEN' || targetElement.id === 'selectEN') ? isEnglish = true : isEnglish = false;
+        setToLocalStorageIsEnglish();
+    }
+}
+
+function showContentTab(contentTabs, targetId) {
+    let tab = document.getElementsByClassName(contentTabs);
+    for (let i = 0; i < tab.length; i++) {
+        tab[i].style.display = "none";
+        tab[i].setAttribute("aria-selected", "false");
+    }
+    document.getElementById(targetId).style.display = "flex";
+    document.getElementById(targetId).setAttribute("aria-selected", "true");
+}
+
+function scrollToTarget(ev, targetId) {
+    ev.preventDefault();
+    let target = document.getElementById(targetId);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.addEventListener("scrollend", () => {
+        requestAnimationFrame(() => {
+            bounceWholePage(target);
+        });
+    }, { once: true });
+}
+
+function bounceWholePage(target) {
+    let main = document.querySelector("main");
+    main.classList.add("bounce-page");
+    setTimeout(() => {
+        main.classList.remove("bounce-page");
+        target.focus();
+        target.blur();
+    }, 300);
+}
+
+function toggleMobileMenu(id) {
+    let burgerMenu = document.getElementById(id);
+    burgerMenu.classList.toggle("change");
+    burgerMenu.setAttribute("aria-expanded", burgerMenu.classList.contains("change") ? "true" : "false");
+    flipCard.classList.toggle('show');
+    if (burgerMenu.classList.contains("change")) {
+        setMenuTabbable(true);
+        document.getElementById('mobileNavLinkOne').focus();
+    } else {
+        setMenuTabbable(false);
+        burgerMenu.focus();
+    }
+}
+
+function setMenuTabbable(isTabbable) {
+    const menuLinks = document.querySelectorAll('#mobileNavMenu a, #mobileNavMenu button');
+    menuLinks.forEach(link => {
+        link.tabIndex = isTabbable ? 0 : -1;
+    });
+}
+
+function handleKeydownEnterSpace(ev, thisElem) {
+    if (ev.key === 'Enter') {
+        ev.preventDefault();
+        const action = thisElem.getAttribute('data-action');
+        if (action) {
+            eval(action);
+        }
+    }
+    if (ev.key === 'Escape' && thisElem.classList.contains("nav-links")) {
+        toggleMobileMenu('burgerMenu');
+    }
+}
+
 
 /**
  * Validates an input field using a provided validation function
@@ -124,208 +166,53 @@ function actionWhenValidationIsFalse_validateField(errMsgElem, errMsg, boolIndex
  * Checks all validations and enables/disables the form send button
  */
 function checkAllValidations_validateField() {
-    let signUpBtn = document.getElementById('form-btn-send');
+    let sendFormBtn = document.getElementById('form-btn-send');
     let allBoolEqualOne = bool.every(el => el === 1);
     if (allBoolEqualOne) {
-        signUpBtn.disabled = false;
-        signUpBtn.setAttribute('aria-disabled', 'false');
+        sendFormBtn.disabled = false;
+        sendFormBtn.setAttribute('aria-disabled', 'false');
     } else {
-        signUpBtn.disabled = true;
-        signUpBtn.setAttribute('aria-disabled', 'true');
-    }
-}
-
-function showProject(ev) {
-    let projectTabs = ev.target.dataset.project;
-    let contentTabs = ev.target.dataset.content;
-    let targetId = ev.target.dataset.target;
-    toggleClassActive(ev, projectTabs);
-    showContentTab(contentTabs, targetId);
-}
-
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 960 && flipCard.classList.contains('show')) {
-        burgerMenu.classList.toggle("change");
-        flipCard.classList.remove('show');
-    }
-});
-
-function setActiveAndScrollToTarget(ev, navTabs, targetId) {
-    ev.preventDefault();
-    toggleClassActive(ev, navTabs);
-    scrollToTarget(ev, targetId);
-}
-
-function toggleClassActive(ev, tabs) {
-    let tab = document.getElementsByClassName(tabs);
-    let targetElement = ev.currentTarget;
-    for (let i = 0; i < tab.length; i++) {
-        tab[i].classList.remove("active");
-    }
-    if (targetElement.dataset.project) {
-        targetElement.parentElement.classList.add("active");
-    } else {
-        targetElement.classList.add("active");
-    }
-}
-
-function showContentTab(contentTabs, targetId) {
-    let tab = document.getElementsByClassName(contentTabs);
-    for (let i = 0; i < tab.length; i++) {
-        tab[i].style.display = "none";
-        tab[i].setAttribute("aria-selected", "false");
-    }
-    document.getElementById(targetId).style.display = "flex";
-    document.getElementById(targetId).setAttribute("aria-selected", "true");
-}
-
-function scrollToTarget(ev, targetId) {
-    ev.preventDefault();
-    let target = document.getElementById(targetId);
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.addEventListener("scrollend", () => {
-        requestAnimationFrame(() => {
-            bounceWholePage(target);
-        });
-    }, { once: true });
-}
-
-function bounceWholePage(target) {
-    let main = document.querySelector("main");
-    main.classList.add("bounce-page");
-    setTimeout(() => {
-        main.classList.remove("bounce-page");
-        target.focus();
-        target.blur();
-    }, 300);
-}
-
-async function runAnimationSequence() {
-    try {
-        while (isVisible_meInteractive) {
-            await writeAnimation(animationMeLocation);
-            if (!isVisible_meInteractive) return;
-            await blinkingCursor(animationMeLocation, animationBlinkingCursor);
-            if (!isVisible_meInteractive) return;
-            await eraseAnimation(animationMeLocation);
-            if (!isVisible_meInteractive) return;
-            await writeAnimation(animationMeHybrid);
-            if (!isVisible_meInteractive) return;
-            await blinkingCursor(animationMeHybrid, animationBlinkingCursor);
-            if (!isVisible_meInteractive) return;
-            await eraseAnimation(animationMeHybrid);
-        }
-    } catch (err) {
-        console.error('current error: ', err);
-    }
-}
-
-function writeAnimation(arr) {
-    return new Promise((resolve) => {
-        let index = 0;
-        let writingInterval = setInterval(() => {
-            if (checkIfVisibleAndStop(writingInterval, resolve)) return;
-            meInteractive.innerHTML = arr.slice(0, index + 1).join('');
-            index++;
-            if (index >= arr.length) {
-                clearInterval(writingInterval);
-                resolve();
-            }
-        }, 125);
-    });
-}
-
-function blinkingCursor(arrMain, arrBlink, times = 3) {
-    return new Promise((resolve) => {
-        let showCursor = true;
-        let counter = 0;
-        let blinkingInterval = setInterval(() => {
-            if (checkIfVisibleAndStop(blinkingInterval, resolve)) return;
-            meInteractive.innerHTML = '';
-            meInteractive.innerHTML = showCursor ? (arrMain.join('') + arrBlink.join('')) : arrMain.join('');
-            showCursor = !showCursor;
-            counter++;
-            stopBlinkingIfComplete(counter, times, blinkingInterval, resolve);
-        }, 400);
-    });
-}
-
-function stopBlinkingIfComplete(counter, times, blinkingInterval, resolve) {
-    if (counter >= times * 2) {
-        clearInterval(blinkingInterval);
-        resolve();
-    }
-}
-
-function eraseAnimation(arr) {
-    return new Promise((resolve) => {
-        let index = arr.length;
-        let blup = setInterval(() => {
-            if (checkIfVisibleAndStop(blup, resolve)) return;
-            meInteractive.innerHTML = arr.slice(0, index).join('');
-            index--;
-            if (index < 1) {
-                clearInterval(blup);
-                resolve();
-            }
-        }, 40);
-    });
-}
-
-function checkIfVisibleAndStop(intervalId, resolve) {
-    if (!isVisible_meInteractive) {
-        clearInterval(intervalId);
-        resolve();
-        return true;
-    }
-    return false;
-}
-
-function toggleMobileMenu(id) {
-    let burgerMenu = document.getElementById(id);
-    burgerMenu.classList.toggle("change");
-    burgerMenu.setAttribute("aria-expanded", burgerMenu.classList.contains("change") ? "true" : "false");
-    flipCard.classList.toggle('show');
-    if (burgerMenu.classList.contains("change")) {
-        setMenuTabbable(true);
-        document.getElementById('mobileNavLinkOne').focus();
-    } else {
-        setMenuTabbable(false);
-        burgerMenu.focus();
-    }
-}
-
-function setMenuTabbable(isTabbable) {
-    const menuLinks = document.querySelectorAll('#mobileNavMenu a, #mobileNavMenu button');
-    menuLinks.forEach(link => {
-        link.tabIndex = isTabbable ? 0 : -1;
-    });
-}
-
-function handleKeydownEnterSpace(ev, thisElem) {
-    if (ev.key === 'Enter') {
-        ev.preventDefault();
-        const action = thisElem.getAttribute('data-action');
-        if (action) {
-            eval(action);
-        }
-    }
-    if (ev.key === 'Escape' && thisElem.classList.contains("nav-links")) {
-        toggleMobileMenu('burgerMenu');
+        sendFormBtn.disabled = true;
+        sendFormBtn.setAttribute('aria-disabled', 'true');
     }
 }
 
 function sendForm() {
     if (bool.every(el => el === 1)) {
-    console.log('Testing SEND FORM, sendForm()');
-    document.getElementById('text').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('textarea').value = '';
-    document.getElementById('checkbox').checked = false;
+        console.log('Testing SEND FORM, sendForm()');
+        document.getElementById('text').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('textarea').value = '';
+        document.getElementById('checkbox').checked = false;
     } else {
         console.log('Form is not valid, cannot send.');
     }
 }
 
+
+
+/**
+ * Set language settings to local storage.
+ */
+function setToLocalStorageIsEnglish() {
+    localStorage.setItem('isEnglish', JSON.stringify(isEnglish));
+}
+
+/**
+ * Load language settings from local storage.
+ */
+function getFromLocalStorageIsEnglish() {
+    let isEnglishLocalStorage = JSON.parse(localStorage.getItem('isEnglish'));
+    isEnglishLocalStorage && (isEnglish = isEnglishLocalStorage);
+}
+
+function setDocumentLanguage() {
+    if (isEnglish) {
+        document.documentElement.lang = 'en';
+    } else {
+        document.documentElement.lang = 'de';
+    }
+}
+
 // function SETLANGUAGE() {}
-// mind: aria-selected="" setzen
+// mind: bei DE/EN aria-selected="" setzen

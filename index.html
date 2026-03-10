@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/media.css">
 
+    <script src="./scripts/meAnimation.js" defer></script>
     <script src="./script.js" defer></script>
 
     <style></style>
 </head>
 
-<body>
+<body onload="init()">
     <div class="content-wrapper">
         <header class="hero-height" id="header">
             <section class="hero-mobile-top" aria-label="Mobile Header">
@@ -82,9 +83,9 @@
                                         Contact
                                     </a>
                                     <article class="mobile-language" aria-label="Mobile language selection">
-                                        <button onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
+                                        <button id="selectMobileDE" onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
                                             class="language-tab" aria-label="DE switches page to German language">DE</button>
-                                        <button onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
+                                        <button id="selectMobileEN" onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
                                             class="language-tab active" aria-label="EN switches page to English language">EN</button>
                                     </article>
                                 </nav>
@@ -182,9 +183,9 @@
                     </a>
                 </article>
                 <article class="mobile-language">
-                    <button onclick="toggleClassActive(event, 'language-tab')" class="language-tab"
+                    <button id="selectDE" onclick="toggleClassActive(event, 'language-tab')" class="language-tab"
                         aria-label="DE switches page to German language">DE</button>
-                    <button onclick="toggleClassActive(event, 'language-tab')" class="language-tab active"
+                    <button id="selectEN" onclick="toggleClassActive(event, 'language-tab')" class="language-tab active"
                         aria-label="EN switches page to English language">EN</button>
                 </article>
             </section>
