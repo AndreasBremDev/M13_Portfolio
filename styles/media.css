@@ -48,6 +48,10 @@
         background-size: contain;
     }
 
+    .skill-icons:hover {
+        transform: translateY(-8px);
+    }
+
     /* ------------ REFERENCE section ------------  */
     .references-text-container:hover::before {
         transform: rotate(-90deg);

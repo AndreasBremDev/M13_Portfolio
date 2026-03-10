@@ -160,6 +160,7 @@ button {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    transform: translateX(-12px);
 }
 
 .mobile-link-section a {
@@ -174,7 +175,8 @@ button {
     gap: 8px;
 }
 
-.language-tab {
+.language-tab,
+.language-mobile-tab {
     position: relative;
     width: 40px;
     height: 32px;
@@ -235,6 +237,7 @@ button {
     bottom: 0;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    text-wrap: nowrap;
 }
 
 .hero-image-shape-container-back {
@@ -358,6 +361,7 @@ button {
 .nav-link-section {
     display: flex;
     gap: 92px;
+    text-wrap: nowrap;
 }
 
 .nav-links {
@@ -371,11 +375,13 @@ button {
 }
 
 .language-tab.active,
+.language-mobile-tab.active,
 .nav-links.active {
     color: var(--secondary);
 }
 
 .language-tab.active::before,
+.language-mobile-tab.active::before,
 .nav-links.active::before {
     content: '';
     position: absolute;
@@ -459,6 +465,11 @@ button {
     flex: 1;
 }
 
+.skill-text-container h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
 .skill-icons-section {
     display: flex;
     flex-wrap: wrap;
@@ -497,6 +508,7 @@ button {
     align-items: center;
     gap: 10px;
     font-size: 18px;
+    transition: 125ms ease-in-out;
 }
 
 .skill-icons-60,

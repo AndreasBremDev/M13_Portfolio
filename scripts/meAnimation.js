@@ -1,3 +1,4 @@
+let isEnglish;
 let animationMeLocation = [
     '<img src="./assets/img/me_located_1.png" alt="icon showing a located needle">',
     '<span class="color-lightblue">I&nbsp;</span>',
@@ -144,6 +145,7 @@ async function runAnimationSequence() {
 function writeAnimation(arr) {
     return new Promise((resolve) => {
         let index = 0;
+        isEnglish ? meInteractive.setAttribute("aria-label","I am located in Munich... and I am open to work hybrid...") : meInteractive.setAttribute("aria-label","Ich wohne in München... und ich arbeite gerne hybrid...");
         let writing = setInterval(() => {
             if (checkIfVisibleAndStop(writing, resolve)) return;
             meInteractive.innerHTML = arr.slice(0, index + 1).join('');

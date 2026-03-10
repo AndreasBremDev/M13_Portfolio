@@ -24,8 +24,8 @@
             <section class="hero-mobile-top" aria-label="Mobile Header">
                 <a href="#header" aria-label="Go to top of page" aria-labelledby="header">
                     <div class="hero-logo-mobile">
-                        <svg aria-label="andreas brem logo" width="53" height="38" viewBox="0 0 53 38" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
+                        <svg aria-label="andreas brem logo" width="53" height="38" viewBox="0 0 53 38" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path
                                 d="M14 27.8594C13.4948 27.8438 13.0573 27.7266 12.6875 27.5078C12.3177 27.2891 12.0104 27 11.7656 26.6406C11.5312 26.2969 11.3542 25.9115 11.2344 25.4844C11.1146 25.0625 11.0547 24.6432 11.0547 24.2266V22.9062C11.0547 22.1562 10.875 21.612 10.5156 21.2734C10.1615 20.9349 9.61719 20.763 8.88281 20.7578V19.625C9.61719 19.625 10.1615 19.4583 10.5156 19.125C10.875 18.7865 11.0547 18.2396 11.0547 17.4844V16.1562C11.0547 15.7344 11.1094 15.3047 11.2188 14.8672C11.3333 14.4245 11.513 14.0286 11.7578 13.6797C11.987 13.3464 12.2865 13.0755 12.6562 12.8672C13.026 12.6536 13.474 12.5391 14 12.5234L14.1641 13.4219C13.7891 13.4323 13.4896 13.5208 13.2656 13.6875C13.0469 13.8542 12.8828 14.0651 12.7734 14.3203C12.6589 14.5807 12.5859 14.8724 12.5547 15.1953C12.5234 15.5182 12.5078 15.8385 12.5078 16.1562V17.4844C12.5078 18.1094 12.362 18.6589 12.0703 19.1328C11.7839 19.6016 11.3385 19.9583 10.7344 20.2031C11.3385 20.4427 11.7839 20.7995 12.0703 21.2734C12.3568 21.7422 12.5026 22.2865 12.5078 22.9062V24.2266C12.5078 24.5495 12.5339 24.8698 12.5859 25.1875C12.638 25.5104 12.7292 25.7995 12.8594 26.0547C12.9844 26.3151 13.151 26.5286 13.3594 26.6953C13.5729 26.862 13.8411 26.9505 14.1641 26.9609L14 27.8594Z"
                                 fill="#F8F5EC" />
@@ -58,35 +58,36 @@
                             </div>
                             <div class="hero-image-shape-container-back">
                                 <nav id="mobileNavMenu" class="mobile-link-section" aria-label="Mobile Navigation">
-                                    <a href="javascript:void(0)" id="mobileNavLinkOne" tabindex="-1"
+                                    <a id="mobileNavLinkMe" href="javascript:void(0)" tabindex="-1"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')" class="nav-links"
-                                        aria-label="Go to me section"
-                                        aria-labelledby="me">
+                                        aria-label="Go to me section" aria-labelledby="me">
                                         Why me
                                     </a>
-                                    <a href="javascript:void(0)" tabindex="-1"
+                                    <a id="mobileNavLinkSkills" href="javascript:void(0)" tabindex="-1"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')"
-                                        class="nav-links" role="button"
-                                        aria-label="Go to skills section" aria-labelledby="skills">
+                                        class="nav-links" role="button" aria-label="Go to skills section"
+                                        aria-labelledby="skills">
                                         Skills
                                     </a>
-                                    <a href="javascript:void(0)" tabindex="-1"
+                                    <a id="mobileNavLinkProjects" href="javascript:void(0)" tabindex="-1"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')"
-                                        class="nav-links" role="button"
-                                        aria-label="Go to projects section" aria-labelledby="projects">
+                                        class="nav-links" role="button" aria-label="Go to projects section"
+                                        aria-labelledby="projects">
                                         Projects
                                     </a>
-                                    <a href="javascript:void(0)" tabindex="-1"
+                                    <a id="mobileNavLinkContact" href="javascript:void(0)" tabindex="-1"
                                         onclick="setActiveAndScrollToTarget(event, 'nav-links', 'contact')"
-                                        class="nav-links" role="button"
-                                        aria-label="Go to contact section" aria-labelledby="contact">
+                                        class="nav-links" role="button" aria-label="Go to contact section"
+                                        aria-labelledby="contact">
                                         Contact
                                     </a>
                                     <article class="mobile-language" aria-label="Mobile language selection">
-                                        <button id="selectMobileDE" onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
-                                            class="language-tab" aria-label="DE switches page to German language">DE</button>
-                                        <button id="selectMobileEN" onclick="toggleClassActive(event, 'language-tab')" tabindex="-1"
-                                            class="language-tab active" aria-label="EN switches page to English language">EN</button>
+                                        <button id="selectMobileDE" onclick="setLanguage(false)" tabindex="-1"
+                                            class="language-mobile-tab"
+                                            aria-label="DE switches page to German language">DE</button>
+                                        <button id="selectMobileEN" onclick="setLanguage(true)" tabindex="-1"
+                                            class="language-mobile-tab"
+                                            aria-label="EN switches page to English language">EN</button>
                                     </article>
                                 </nav>
                             </div>
@@ -95,7 +96,8 @@
                 </article>
                 <article class="hero-layout-right">
                     <div class="hero-logo">
-                        <svg aria-label="andreas brem logo" width="53" height="38" viewBox="0 0 53 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg aria-label="andreas brem logo" width="53" height="38" viewBox="0 0 53 38" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14 27.8594C13.4948 27.8438 13.0573 27.7266 12.6875 27.5078C12.3177 27.2891 12.0104 27 11.7656 26.6406C11.5312 26.2969 11.3542 25.9115 11.2344 25.4844C11.1146 25.0625 11.0547 24.6432 11.0547 24.2266V22.9062C11.0547 22.1562 10.875 21.612 10.5156 21.2734C10.1615 20.9349 9.61719 20.763 8.88281 20.7578V19.625C9.61719 19.625 10.1615 19.4583 10.5156 19.125C10.875 18.7865 11.0547 18.2396 11.0547 17.4844V16.1562C11.0547 15.7344 11.1094 15.3047 11.2188 14.8672C11.3333 14.4245 11.513 14.0286 11.7578 13.6797C11.987 13.3464 12.2865 13.0755 12.6562 12.8672C13.026 12.6536 13.474 12.5391 14 12.5234L14.1641 13.4219C13.7891 13.4323 13.4896 13.5208 13.2656 13.6875C13.0469 13.8542 12.8828 14.0651 12.7734 14.3203C12.6589 14.5807 12.5859 14.8724 12.5547 15.1953C12.5234 15.5182 12.5078 15.8385 12.5078 16.1562V17.4844C12.5078 18.1094 12.362 18.6589 12.0703 19.1328C11.7839 19.6016 11.3385 19.9583 10.7344 20.2031C11.3385 20.4427 11.7839 20.7995 12.0703 21.2734C12.3568 21.7422 12.5026 22.2865 12.5078 22.9062V24.2266C12.5078 24.5495 12.5339 24.8698 12.5859 25.1875C12.638 25.5104 12.7292 25.7995 12.8594 26.0547C12.9844 26.3151 13.151 26.5286 13.3594 26.6953C13.5729 26.862 13.8411 26.9505 14.1641 26.9609L14 27.8594Z"
                                 fill="#F8F5EC" />
@@ -161,31 +163,31 @@
                     </a>
                 </article>
                 <article class="nav-link-section">
-                    <a href="javascript:void(0)" onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')"
-                        class="nav-links" role="button" aria-label="Go to me section"
-                        aria-labelledby="me">
+                    <a id="navLinkMe" href="javascript:void(0)"
+                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')" class="nav-links" role="button"
+                        aria-label="Go to me section" aria-labelledby="me">
                         Why me
                     </a>
-                    <a href="javascript:void(0)" onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')"
-                        class="nav-links" role="button" aria-label="Go to skills section"
-                        aria-labelledby="skills">
+                    <a id="navLinkSkills" href="javascript:void(0)"
+                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')" class="nav-links"
+                        role="button" aria-label="Go to skills section" aria-labelledby="skills">
                         Skills
                     </a>
-                    <a href="javascript:void(0)" onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')"
-                        class="nav-links" role="button" aria-label="Go to projects section"
-                        aria-labelledby="projects">
+                    <a id="navLinkProjects" href="javascript:void(0)"
+                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')" class="nav-links"
+                        role="button" aria-label="Go to projects section" aria-labelledby="projects">
                         Projects
                     </a>
-                    <a href="javascript:void(0)" onclick="setActiveAndScrollToTarget(event, 'nav-links', 'contact')"
-                        class="nav-links" role="button" aria-label="Go to contact section"
-                        aria-labelledby="contact">
+                    <a id="navLinkContact" href="javascript:void(0)"
+                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'contact')" class="nav-links"
+                        role="button" aria-label="Go to contact section" aria-labelledby="contact">
                         Contact
                     </a>
                 </article>
                 <article class="mobile-language">
-                    <button id="selectDE" onclick="toggleClassActive(event, 'language-tab')" class="language-tab"
+                    <button id="selectDE" onclick="setLanguage(false)" class="language-tab"
                         aria-label="DE switches page to German language">DE</button>
-                    <button id="selectEN" onclick="toggleClassActive(event, 'language-tab')" class="language-tab active"
+                    <button id="selectEN" onclick="setLanguage(true)" class="language-tab"
                         aria-label="EN switches page to English language">EN</button>
                 </article>
             </section>
@@ -195,32 +197,34 @@
         <div class="content-wrapper">
 
             <section id="me" class="me-section" tabindex="-1">
-                <h2 class="me-h2">Why me</h2>
+                <h2 id="sectionMeH2" class="me-h2">Why me</h2>
                 <div class="me-boxes">
                     <div id="meInteractive" class="me-interactive" role="region"
                         aria-label="I am located in Munich... and I am open to work hybrid...">
                     </div>
 
                     <div class="me-text">
-                        <p>When the opportunity to learn frontend development arose, I seized it immediately. I am
+                        <p id="sectionMeText">When the opportunity to learn frontend development arose, I seized it
+                            immediately. I am
                             highly motivated and eager to take the next step toward becoming a backend developer. Once I
                             commit to a goal, I am determined to see it through. To me, development is a lifelong
                             journey of learning, and I am excited to continue on this path.</p>
                     </div>
                 </div>
                 <div class="btn-me-contact">
-                    <a href="javascript:void(0)" class="btn-standard" onclick="scrollToTarget(event, 'contact')"
-                        role="button" aria-label="Go to contact section" aria-labelledby="contact">
+                    <a id="sectionMeBtn" href="javascript:void(0)" class="btn-standard"
+                        onclick="scrollToTarget(event, 'contact')" role="button" aria-label="Go to contact section"
+                        aria-labelledby="contact">
                         Let's talk
                     </a>
                 </div>
             </section>
 
             <section id="skills" class="skill-section" tabindex="-1">
-                <h2 class="skill-h2">My Skills</h2>
+                <h2 id="sectionSkillsH2" class="skill-h2">My Skills</h2>
                 <div class="skill-boxes">
                     <div class="skill-icons-section color-lightblue">
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="JavaScript">
                             <svg class="skill-icons-60" name="javascript" viewBox="0 0 60 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="javascript icon">
                                 <path
@@ -229,7 +233,7 @@
                             </svg>
                             <p class="skill-icons-text">JavaScript</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="HTML">
                             <svg class="skill-icons-60" name="html5" viewBox="0 0 54 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="html5 icon">
                                 <path
@@ -238,7 +242,7 @@
                             </svg>
                             <p class="skill-icons-text">HTML</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="CSS">
                             <svg class="skill-icons-60" name="css3" viewBox="0 0 54 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="css3 icon">
                                 <path
@@ -247,7 +251,7 @@
                             </svg>
                             <p class="skill-icons-text">CSS</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="Git">
                             <svg class="skill-icons-60" name="git" viewBox="0 0 60 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="git icon">
                                 <path
@@ -256,7 +260,7 @@
                             </svg>
                             <p class="skill-icons-text">Git</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="Rest-API">
                             <svg class="skill-icons-60" name="restapi" viewBox="0 0 56 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="rest api icon">
                                 <path
@@ -271,7 +275,7 @@
                             </svg>
                             <p class="skill-icons-text">REST-API</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="Firebase">
                             <svg class="skill-icons-60" name="firebase" viewBox="0 0 44 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="firebase icon">
                                 <path
@@ -280,7 +284,7 @@
                             </svg>
                             <p class="skill-icons-text">Firebase</p>
                         </div>
-                        <div class="skill-icons">
+                        <div class="skill-icons" title="Scrum">
                             <svg class="skill-icons-60" name="scrum" viewBox="0 0 65 60" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" aria-label="scrum icon">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -297,7 +301,7 @@
                         </div>
                     </div>
                     <div class="skill-text-container">
-                        <p class="skill-mobile-blue">I am currently learning</p>
+                        <h3 id="sectionSkillsH3" class="skill-mobile-blue">I am currently learning</h3>
                         <div class="skill-learning-icons">
                             <div class="skill-icons">
                                 <svg class="skill-icons-32" name="angular" viewBox="0 0 56 60" fill="none"
@@ -315,17 +319,17 @@
                                         d="M59.8909 4.7749C59.4543 2.48295 57.6808 0.627558 55.4161 0.136426C55.307 0.109141 55.1978 0.109141 55.0614 0.0818554C55.0341 0.0818554 55.0068 0.0272851 54.9795 0H4.93861C4.91132 0.0272851 4.88404 0.0818554 4.82947 0.0818554C2.5648 0.463847 0.654843 2.26467 0.136426 4.55662C0.109141 4.63847 0.0545703 4.74761 0 4.85675V55.0341C0.0272851 55.0887 0.0818554 55.116 0.0818554 55.1705C0.627558 57.6808 2.15553 59.236 4.63847 59.8636C4.72033 59.8909 4.7749 59.9454 4.82947 60H55.0614C55.116 59.9727 55.1433 59.9181 55.1978 59.8909C57.6808 59.3179 59.2087 57.8172 59.8363 55.3342C59.8636 55.2524 59.8363 55.1433 59.8636 55.0614C59.8636 55.0341 59.9181 55.0068 59.9454 54.9795V4.93861C59.9454 4.88404 59.8909 4.85675 59.8909 4.7749ZM34.7885 33.2606H34.4884C32.2237 33.2606 29.9318 33.2606 27.6671 33.2606C27.558 33.2606 27.4488 33.2606 27.3397 33.2606C27.3397 33.2879 27.3124 33.2879 27.3124 33.3151C27.3124 33.4243 27.3124 33.5334 27.3124 33.6426V54.6794H21.337V33.2879H13.8336V28.513H34.7613V33.2606H34.7885ZM54.925 47.5307C54.8704 48.4584 54.734 49.3588 54.352 50.2319C54.2428 50.5048 54.161 50.7503 54.0246 51.0232C53.5334 52.06 52.7149 52.7967 51.7599 53.397C50.6685 54.0791 49.4679 54.4611 48.2128 54.7067C46.8213 54.9795 45.4297 55.0614 44.0109 55.0068C43.3288 54.9795 42.6467 54.9795 41.9645 54.8977C40.3547 54.7067 38.7722 54.352 37.2988 53.6426C37.2169 53.6153 37.1078 53.4789 37.1078 53.397C37.1078 51.6235 37.1078 49.8499 37.1078 48.0764C37.1078 48.0491 37.1078 48.0218 37.1078 47.9673C37.5443 48.2674 37.9809 48.5675 38.4175 48.8131C39.4816 49.4407 40.6548 49.8772 41.8554 50.1501C42.8922 50.3956 43.9291 50.4229 44.9659 50.3684C45.7572 50.3411 46.5484 50.1501 47.2578 49.7954C47.8854 49.4679 48.4038 49.0314 48.5402 48.2947C48.6767 47.6398 48.6221 46.985 48.2401 46.412C47.6944 45.5935 46.9304 45.075 46.0846 44.6385C45.1296 44.1746 44.1746 43.7654 43.1924 43.3288C41.7463 42.6739 40.3274 41.9645 39.1542 40.8731C38.1992 39.9727 37.4898 38.9086 37.1623 37.6262C36.9714 36.8622 36.9168 36.0982 36.9441 35.3342C36.9714 33.4516 37.6535 31.8417 38.9905 30.5048C40.0819 29.4134 41.4188 28.7585 42.8922 28.3765C43.9018 28.131 44.9113 27.94 45.9482 27.9127C46.6849 27.9127 47.4216 27.8308 48.131 27.8581C49.2497 27.8854 50.3411 27.94 51.4325 28.2128C52.1419 28.4038 52.8786 28.5948 53.588 28.7585C53.7244 28.7858 53.779 28.8677 53.779 29.0314C53.779 30.7231 53.779 32.442 53.779 34.1337C53.779 34.1883 53.779 34.2428 53.7517 34.3247C53.5334 34.1883 53.3424 34.0791 53.1514 33.97C52.2783 33.4789 51.3506 33.1514 50.3956 32.9059C49.3315 32.6603 48.2674 32.4966 47.176 32.5239C46.4393 32.5512 45.6753 32.6603 44.9932 32.9059C44.1473 33.206 43.4652 33.6971 43.1651 34.5975C42.9195 35.307 43.1105 35.9072 43.5471 36.4802C44.0928 37.1896 44.8295 37.6808 45.6207 38.0628C46.6849 38.5812 47.7763 39.0177 48.8131 39.5089C50.0136 40.0819 51.2142 40.6548 52.2237 41.5007C53.0969 42.2374 53.8881 43.0559 54.3247 44.1473C54.5703 44.8022 54.7885 45.4843 54.7885 46.221C54.8977 46.6576 54.9523 47.0941 54.925 47.5307Z"
                                         fill="#89BCD9" />
                                 </svg>
-                                <p>Typescript</p>
+                                <p>TypeScript</p>
                             </div>
                         </div>
-                        <p class="skill-text">The journey just goes on and on.
-                            I'm keen to gain knowledge all time.
-                            With new challenges, new skills are needed,
-                            and so there will be always more to learn.
+                        <p id="sectionSkillsText" class="skill-text">The journey just goes on and on. I'm keen to
+                            constantly gain knowledge. With new challenges, new skills are needed, and so there will
+                            always be more to learn.
                         </p>
                         <div class="skill-btn-contact show-when-mobile">
-                            <a href="javascript:void(0)" class="btn-cta" onclick="scrollToTarget(event, 'contact')"
-                                role="button" aria-label="Go to contact section" aria-labelledby="contact">
+                            <a id="mobileSectionSkillsBtn" href="javascript:void(0)" class="btn-cta"
+                                onclick="scrollToTarget(event, 'contact')" role="button"
+                                aria-label="Go to contact section" aria-labelledby="contact">
                                 Let's talk
                             </a>
                         </div>
@@ -336,25 +340,25 @@
 
         <section id="projects" class="project-section" tabindex="-1">
             <div class="content-wrapper">
-                <h2 class="project-h2">My Projects</h2>
+                <h2 id="sectionProjectH2" class="project-h2">My Projects</h2>
                 <div class="project-tabs" role="tablist">
                     <div class="project-header-tab active">
-                        <button id="tab-project-1" role="tab" aria-controls="join"
-                            onclick="showProject(event)" class="project-h3 color-lightblue"
-                            aria-labelledby="projectHeader1" aria-describedby="projectDescr1" data-target="join"
-                            data-project="project-header-tab" data-content="project-content-tab">1. Project</button>
+                        <button id="tab-project-1" role="tab" aria-controls="join" onclick="showProject(event)"
+                            class="project-h3 color-lightblue" aria-labelledby="projectHeader1"
+                            aria-describedby="projectDescr1" data-target="join" data-project="project-header-tab"
+                            data-content="project-content-tab">1. Project</button>
                     </div>
                     <div class="project-header-tab">
-                        <button id="tab-project-2" role="tab" aria-controls="epl" 
-                            onclick="showProject(event)" class="project-h3 color-lightblue"
-                            aria-labelledby="projectHeader2" aria-describedby="projectDescr2" data-target="epl"
-                            data-project="project-header-tab" data-content="project-content-tab">2. Project</button>
+                        <button id="tab-project-2" role="tab" aria-controls="epl" onclick="showProject(event)"
+                            class="project-h3 color-lightblue" aria-labelledby="projectHeader2"
+                            aria-describedby="projectDescr2" data-target="epl" data-project="project-header-tab"
+                            data-content="project-content-tab">2. Project</button>
                     </div>
                     <div class="project-header-tab">
-                        <button id="tab-project-3" role="tab" aria-controls="upcoming"
-                            onclick="showProject(event)" class="project-h3 color-lightblue"
-                            aria-labelledby="projectHeader3" aria-describedby="projectDescr3" data-target="upcoming"
-                            data-project="project-header-tab" data-content="project-content-tab">3. Project</button>
+                        <button id="tab-project-3" role="tab" aria-controls="upcoming" onclick="showProject(event)"
+                            class="project-h3 color-lightblue" aria-labelledby="projectHeader3"
+                            aria-describedby="projectDescr3" data-target="upcoming" data-project="project-header-tab"
+                            data-content="project-content-tab">3. Project</button>
                     </div>
                 </div>
             </div>
@@ -382,13 +386,14 @@
                                     Join is a TASK MANAGEMENT business app, inspired by Kanban, and implemented
                                     as a Team project.
                                     You can create and organize tasks using drag and drop functions, assign users and
-                                    categories. Furthermore edit the task-card and add subtasks as well</p>
+                                    categories. Furthermore edit the task-card and add subtasks as well.</p>
                             </li>
                             <li>
-                                <h3 class="project-content-h3">Work process</h3>
+                                <h3 id="projectProcess1" class="project-content-h3">Work process</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">Within the three member team we assigned epics to
+                                <p id="projectProcessDescr1" class="project-content-tab-text">Within the three member
+                                    team we assigned epics to
                                     each individual. Then handled via
                                     git-branching each user storys, features and tasks.
                                     Once a user story was completed, we always merged as team, thus no code was deleted
@@ -397,29 +402,32 @@
                                     This way development process was clean and team collaboration easy.</p>
                             </li>
                             <li>
-                                <h3 class="project-content-h3">My group work experience</h3>
+                                <h3 id="projectExperience1" class="project-content-h3">My group work experience</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">I really enjoyed collaboration and cooperation
+                                <p id="projectExperienceDescr1" class="project-content-tab-text">I really enjoyed
+                                    collaboration and cooperation
                                     within the team.
                                     We installed daily calls, in order to keep track of progress and whole process.
                                     I sometimes helped out my colleagues, as well as we tested together in the end of
                                     the project.</p>
                             </li>
                             <li class="li-items-duration">
-                                <h3 class="project-content-h3">Duration</h3>
+                                <h3 id="projectDuration1" class="project-content-h3">Duration</h3>
                             </li>
                             <li class="li-items-duration">
-                                <p class="project-content-tab-text last">1.5 Months</p>
+                                <p id="projectDurationDescr1" class="project-content-tab-text last">1.5 Months</p>
                             </li>
                         </ul>
                         <div class="project-content-box-two-showcase">
                             <div class="project-content-technologies">
-                                <p class="project-content-technologies-text">Technologies</p>
+                                <p id="projectTechnologies1" class="project-content-technologies-text">Technologies</p>
                                 <h3 class="project-content-technologies-h3-mobile">Join</h3>
-                                <p class="project-content-technologies-text-mobile">Technologies: JavaScript, HTML, CSS
+                                <p id="mobileProjectTechnologies1" class="project-content-technologies-text-mobile">
+                                    Technologies: JavaScript, HTML, CSS
                                 </p>
-                                <p class="project-content-technologies-duration-mobile">Duration: 1.5 months</p>
+                                <p id="mobileProjectDuration1" class="project-content-technologies-duration-mobile">
+                                    Duration: 1.5 months</p>
                                 <div class="project-content-technologies-icons">
                                     <svg class="skill-icons-36" name="javascript" viewBox="0 0 60 60" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" aria-label="javascript">
@@ -456,7 +464,8 @@
                             </div>
                         </div>
                     </section>
-                    <section id="epl" class="project-content-tab" style="display: none;" role="tabpanel" aria-labelledby="tab-project-2">
+                    <section id="epl" class="project-content-tab" style="display: none;" role="tabpanel"
+                        aria-labelledby="tab-project-2">
                         <div class="project-content-showcase-btns-mobile">
                             <a class="btn-cta"
                                 href="https://andreas-brem.developerakademie.net/M12_Game_PolloLoco/index.html"
@@ -479,10 +488,11 @@
                                     the endboss.</p>
                             </li>
                             <li>
-                                <h3 class="project-content-h3">Work process</h3>
+                                <h3 id="projectProcess2" class="project-content-h3">Work process</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">While having the project split into various user
+                                <p id="projectProcessDescr2" class="project-content-tab-text">While having the project
+                                    split into various user
                                     stories,
                                     OOP helped me keeping methods tied up to relevent classes, in order to make use of
                                     all OOP
@@ -491,41 +501,43 @@
                                 </p>
                             </li>
                             <li>
-                                <h3 class="project-content-h3">My lessons learned</h3>
+                                <h3 id="projectExperience2" class="project-content-h3">My lessons learned</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">Designing, programming and using of the classes and
-                                    methods gave me a good learning curve.
-                                    This way I was able to programm modular, flexible and reusable code even better</p>
+                                <p id="projectExperienceDescr2" class="project-content-tab-text">Designing and
+                                    implementing classes and methods significantly improved my development skills. This
+                                    approach allowed me to write more modular, flexible, and reusable code.</p>
                             </li>
                             <li class="li-items-duration">
-                                <h3 class="project-content-h3">Duration</h3>
+                                <h3 id="projectDuration2" class="project-content-h3">Duration</h3>
                             </li>
                             <li class="li-items-duration">
-                                <p class="project-content-tab-text last">1 Months</p>
+                                <p id="projectDurationDescr2" class="project-content-tab-text last">1 Month</p>
                             </li>
                         </ul>
                         <div class="project-content-box-two-showcase">
                             <div class="project-content-technologies">
-                                <p class="project-content-technologies-text">Technologies</p>
+                                <p id="projectTechnologies2" class="project-content-technologies-text">Technologies</p>
                                 <h3 class="project-content-technologies-h3-mobile">El Pollo Loco</h3>
-                                <p class="project-content-technologies-text-mobile">Technologies: JavaScript, OOP,
+                                <p id="mobileProjectTechnologies2" class="project-content-technologies-text-mobile">
+                                    Technologies: JavaScript, OOP,
                                     Canvas</p>
-                                <p class="project-content-technologies-duration-mobile">Duration: 1 months</p>
+                                <p id="mobileProjectDuration2" class="project-content-technologies-duration-mobile">
+                                    Duration: 1 month</p>
                                 <div class="project-content-technologies-icons">
-                                    <svg class="skill-icons-36" name="javascript" viewBox="0 0 60 60" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" aria-label="javascript">
+                                    <svg class="skill-icons-36" title="JavaScript" name="javascript" viewBox="0 0 60 60"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="javascript">
                                         <path
                                             d="M0 0C20.0135 0 39.9865 0 60 0C60 20.0135 60 40.027 60 60C40.027 60 20.0135 60 0 60C0 39.946 0 19.973 0 0ZM53.6799 31.7623C52.4645 29.5746 50.8035 28.0756 48.4132 27.549C46.7117 27.1438 45.0101 27.1438 43.3086 27.5084C37.7988 28.6428 35.449 35.287 39.0142 39.7029C40.2701 41.2424 41.9311 42.1742 43.6732 42.9845C45.2127 43.7137 46.7927 44.4024 48.3322 45.1722C49.3855 45.6989 49.8312 46.6712 49.7097 47.8461C49.5881 49.0209 48.7778 49.6691 47.765 50.0338C45.4963 50.844 42.8629 50.1148 41.3234 48.2107C40.9993 47.8055 40.6752 47.3599 40.3511 46.9142C38.8116 47.8055 37.3126 48.6563 35.8136 49.5476C36.7454 51.3707 38.0419 52.8292 39.8244 53.8015C42.8629 55.4625 46.0635 55.7056 49.345 54.8953C51.4922 54.3687 53.3153 53.2748 54.4497 51.2897C56.5564 47.5219 55.341 42.8224 51.6138 40.5132C49.9527 39.5003 48.0891 38.8116 46.3471 37.9203C45.4963 37.4747 44.605 37.0695 43.8758 36.5024C42.5793 35.449 42.8224 33.3423 44.2809 32.5321C45.6988 31.7218 47.684 32.208 48.7778 33.6259C49.0209 33.9095 49.183 34.2336 49.4261 34.5577C50.8035 33.6259 52.2215 32.6941 53.6799 31.7623ZM15.8001 50.1553C16.6104 51.8974 17.7853 53.2748 19.4463 54.1661C21.5935 55.341 23.9433 55.5436 26.3336 55.1789C28.4808 54.8548 30.2633 53.8825 31.4382 51.9379C32.4105 50.3174 32.6941 48.5348 32.6941 46.6307C32.6941 40.4727 32.6941 34.3147 32.6941 28.1567C32.6941 27.9946 32.6941 27.792 32.6941 27.5895C30.79 27.5895 28.9669 27.5895 27.0628 27.5895C27.0628 27.8325 27.0628 28.0351 27.0628 28.2782C27.0628 34.3552 27.0628 40.3916 27.0628 46.4686C27.0628 47.0358 27.0223 47.6435 26.9413 48.2107C26.7792 49.1425 26.293 49.8312 25.3612 50.1148C23.6192 50.6415 22.2012 50.1148 21.1884 48.6158C20.9453 48.2107 20.7022 47.8055 20.4186 47.4004C18.8386 48.3322 17.3396 49.2235 15.8001 50.1553Z"
                                             fill="#89BCD9" />
                                     </svg>
-                                    <svg class="skill-icons-36" name="html5" viewBox="0 0 54 60" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" aria-label="html5">
+                                    <svg class="skill-icons-36" title="HTML" name="html5" viewBox="0 0 54 60"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="html5">
                                         <path
                                             d="M27 48.534L40.86 44.766L42.729 24.432H18.078L17.466 17.67H43.344L44.025 11.037H9.975L11.883 31.071H35.343L34.56 39.669L27 41.67L19.44 39.669L18.966 34.137H12.156L13.143 44.769L27 48.534ZM0 0H54L49.131 54L27 60L4.869 54L0 0Z"
                                             fill="#89BCD9" />
                                     </svg>
-                                    <svg class="skill-icons-36" name="css3" viewBox="0 0 54 60" fill="none"
+                                    <svg class="skill-icons-36" title="CSS" name="css3" viewBox="0 0 54 60" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" aria-label="css3">
                                         <path
                                             d="M0.00479286 0.0105726C0.00479286 0.243169 -0.00599108 0.401758 0.00479286 0.560346C0.414583 4.95854 0.824373 9.35673 1.22338 13.7655C1.78414 20.0033 2.33412 26.2411 2.89489 32.4684C3.53114 39.4674 4.17818 46.4559 4.79286 53.4549C4.836 53.9624 5.01933 54.1844 5.5046 54.3113C12.4063 56.1721 19.2865 58.0434 26.1882 59.8936C26.6519 60.0205 27.2127 60.0416 27.6764 59.9148C34.5997 58.054 41.5122 56.1615 48.4355 54.2902C48.9639 54.1421 49.1472 53.9095 49.1904 53.3809C49.406 50.7378 49.6649 48.0841 49.9021 45.4409C50.3011 41.0639 50.6893 36.6868 51.0883 32.3098C51.552 27.1715 52.0265 22.0438 52.4902 16.9055C52.8353 13.0783 53.202 9.26157 53.5471 5.4343C53.7088 3.63696 53.849 1.83963 54 0H0.00479286V0.0105726ZM43.5827 15.2774C43.2268 19.1469 42.871 23.0271 42.5151 26.8966C42.1053 31.3477 41.6955 35.7987 41.2857 40.2392C41.1671 41.5185 40.9946 42.7978 40.9622 44.0876C40.9406 44.7748 40.6387 44.9546 40.0564 45.1132C35.8938 46.2127 31.7419 47.344 27.5901 48.4647C27.4068 48.5175 27.2343 48.581 27.0509 48.6338C26.9862 48.6021 26.9215 48.581 26.846 48.5492C22.403 47.3651 17.9601 46.1704 13.5171 44.9651C13.3337 44.9123 13.0965 44.6268 13.0749 44.4259C12.7622 41.1273 12.4818 37.8287 12.1799 34.4666H18.963C19.0816 35.7882 19.211 37.1309 19.3188 38.4842C19.4159 39.7317 19.4051 39.7317 20.6021 40.0489C22.7481 40.6092 24.9049 41.159 27.0509 41.7088L27.0294 41.6559C29.3803 41.0427 31.7312 40.4401 34.0821 39.7846C34.2977 39.7212 34.5458 39.3828 34.5781 39.1502C34.7183 38.1353 34.7938 37.1097 34.8801 36.0948C35.0203 34.456 35.1604 32.8173 35.3114 31.1045H27.0294L27.0509 31.0622C26.997 31.0622 26.9323 31.0622 26.8784 31.0622H11.8671C11.6622 28.8737 11.4681 26.7063 11.2632 24.4755H26.8892C26.9431 24.4755 27.0078 24.4755 27.0617 24.4755L27.0401 24.4332H35.9153C36.1202 22.1601 36.3251 19.9399 36.53 17.6773H27.0294L27.0509 17.635C26.997 17.635 26.9323 17.635 26.8784 17.635C21.5619 17.6456 16.2454 17.6456 10.9289 17.6562C10.8534 17.6562 10.778 17.6245 10.6378 17.5822C10.4436 15.4254 10.2388 13.2686 10.0446 11.0483H26.8784C26.9323 11.0483 26.997 11.0483 27.0509 11.0483L27.0294 11.006H43.9386C43.82 12.4862 43.7013 13.8818 43.5827 15.2774Z"
@@ -549,80 +561,77 @@
                             </div>
                         </div>
                     </section>
-                    <section id="upcoming" class="project-content-tab" style="display: none;" role="tabpanel" aria-labelledby="tab-project-3">
+                    <section id="upcoming" class="project-content-tab" style="display: none;" role="tabpanel"
+                        aria-labelledby="tab-project-3">
                         <ul class="project-content-box-one-liststyle">
                             <li>
-                                <h3 id="projectHeader3" class="project-content-h3">About</h3>
+                                <h3 id="projectHeader3" class="project-content-h3">About the projects</h3>
                             </li>
                             <li>
                                 <p id="projectDescr3" class="project-content-tab-text">My next projects will be
                                     showcases
                                     of Angular and Typescript in general.</p>
                             <li>
-                                <h3 class="project-content-h3">Memory Game</h3>
+                                <h3 id="projectHeader3SubHeader1" class="project-content-h3">Memory Game</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">I'll enhance my skills by TypeScript and
-                                    SCSS.
-                                </p>
+                                <p id="projectHeader3SubDescr1" class="project-content-tab-text">Advancing my frontend
+                                    expertise through TypeScript and SCSS.</p>
                             </li>
                             <li>
-                                <h3 class="project-content-h3">Poll App</h3>
+                                <h3 id="projectHeader3SubHeader2" class="project-content-h3">Poll App</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">Planning a Poll App, written in Angular and using
-                                    the backend service Supabase. You can do and get the result of surveys in realtime.
+                                <p id="projectHeader3SubDescr2" class="project-content-tab-text">Developing a real-time
+                                    Poll App built with Angular and Supabase. The application enables users to create
+                                    surveys and track live results as they happen.
                                 </p>
                             </li>
 
                             <li>
-                                <h3 class="project-content-h3">Goals</h3>
+                                <h3 id="projectHeader3SubHeader3" class="project-content-h3">Goals</h3>
                             </li>
                             <li>
-                                <p class="project-content-tab-text">The goal is always to learn more and getting deeper
-                                    understanding of already gathered knowledge.<br>
-                                    The key to success is good planning and organization, as this will result in
-                                    structured
-                                    execution and good quality code.
-                                    <br><br>
-                                    I continuesly want to improve my skills and never stop learning. Life is learning
-                                    and
-                                    change.
+                                <p id="projectHeader3SubDescr3_1" class="project-content-tab-text">Continuous Learning: 
+                                    Dedicated to expanding my tech stack and deepening my architectural knowledge.</p>
+                                <p id="projectHeader3SubDescr3_2" class="project-content-tab-text">Methodical Approach: 
+                                    Strong focus on planning and organization to deliver structured, high-quality code.</p>
+                                <p class="project-content-tab-text">Growth Mindset: 
+                                    Embracing change and lifelong learning as core professional values.
                                 </p>
                             </li>
                         </ul>
                         <div class="project-content-box-two-showcase">
                             <div class="project-content-technologies">
-                                <p class="project-content-technologies-text">Technologies</p>
-                                <h3 class="project-content-technologies-h3-mobile">Upcoming</h3>
-                                <p class="project-content-technologies-text-mobile">Technologies: Angular, TypeScript,
-                                    JS</p>
+                                <p id="projectTechnologies3" class="project-content-technologies-text">Technologies</p>
+                                <h3 id="mobileProjectTitle3" class="project-content-technologies-h3-mobile">Upcoming</h3>
+                                <p id="mobileProjectTechnologies3" class="project-content-technologies-text-mobile">Technologies: Angular, TypeScript, JS</p>
                                 <p class="project-content-technologies-duration-mobile">Duration: 1-2 months</p>
 
                                 <div class="project-content-technologies-icons">
-                                    <svg class="skill-icons-36" name="angular" viewBox="0 0 56 60" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" aria-label="angular">
+                                    <svg class="skill-icons-36" title="Angular" name="angular" viewBox="0 0 56 60"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="angular">
                                         <path
                                             d="M27.9 0L55.8 9.96L51.546 46.89L27.9 60L4.254 46.89L0 9.96L27.9 0ZM27.9 6.63L10.458 45.78H16.962L20.469 37.02H35.271L38.781 45.78H45.282L27.9 6.63ZM32.994 31.62H22.806L27.9 19.35L32.994 31.62Z"
                                             fill="#89BCD9" />
                                     </svg>
-                                    <svg class="skill-icons-36" name="typescript" viewBox="0 0 60 60" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" aria-label="typescript">
+                                    <svg class="skill-icons-36" title="TypeScript" name="typescript" viewBox="0 0 60 60"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="typescript">
                                         <path
                                             d="M59.8909 4.7749C59.4543 2.48295 57.6808 0.627558 55.4161 0.136426C55.307 0.109141 55.1978 0.109141 55.0614 0.0818554C55.0341 0.0818554 55.0068 0.0272851 54.9795 0H4.93861C4.91132 0.0272851 4.88404 0.0818554 4.82947 0.0818554C2.5648 0.463847 0.654843 2.26467 0.136426 4.55662C0.109141 4.63847 0.0545703 4.74761 0 4.85675V55.0341C0.0272851 55.0887 0.0818554 55.116 0.0818554 55.1705C0.627558 57.6808 2.15553 59.236 4.63847 59.8636C4.72033 59.8909 4.7749 59.9454 4.82947 60H55.0614C55.116 59.9727 55.1433 59.9181 55.1978 59.8909C57.6808 59.3179 59.2087 57.8172 59.8363 55.3342C59.8636 55.2524 59.8363 55.1433 59.8636 55.0614C59.8636 55.0341 59.9181 55.0068 59.9454 54.9795V4.93861C59.9454 4.88404 59.8909 4.85675 59.8909 4.7749ZM34.7885 33.2606H34.4884C32.2237 33.2606 29.9318 33.2606 27.6671 33.2606C27.558 33.2606 27.4488 33.2606 27.3397 33.2606C27.3397 33.2879 27.3124 33.2879 27.3124 33.3151C27.3124 33.4243 27.3124 33.5334 27.3124 33.6426V54.6794H21.337V33.2879H13.8336V28.513H34.7613V33.2606H34.7885ZM54.925 47.5307C54.8704 48.4584 54.734 49.3588 54.352 50.2319C54.2428 50.5048 54.161 50.7503 54.0246 51.0232C53.5334 52.06 52.7149 52.7967 51.7599 53.397C50.6685 54.0791 49.4679 54.4611 48.2128 54.7067C46.8213 54.9795 45.4297 55.0614 44.0109 55.0068C43.3288 54.9795 42.6467 54.9795 41.9645 54.8977C40.3547 54.7067 38.7722 54.352 37.2988 53.6426C37.2169 53.6153 37.1078 53.4789 37.1078 53.397C37.1078 51.6235 37.1078 49.8499 37.1078 48.0764C37.1078 48.0491 37.1078 48.0218 37.1078 47.9673C37.5443 48.2674 37.9809 48.5675 38.4175 48.8131C39.4816 49.4407 40.6548 49.8772 41.8554 50.1501C42.8922 50.3956 43.9291 50.4229 44.9659 50.3684C45.7572 50.3411 46.5484 50.1501 47.2578 49.7954C47.8854 49.4679 48.4038 49.0314 48.5402 48.2947C48.6767 47.6398 48.6221 46.985 48.2401 46.412C47.6944 45.5935 46.9304 45.075 46.0846 44.6385C45.1296 44.1746 44.1746 43.7654 43.1924 43.3288C41.7463 42.6739 40.3274 41.9645 39.1542 40.8731C38.1992 39.9727 37.4898 38.9086 37.1623 37.6262C36.9714 36.8622 36.9168 36.0982 36.9441 35.3342C36.9714 33.4516 37.6535 31.8417 38.9905 30.5048C40.0819 29.4134 41.4188 28.7585 42.8922 28.3765C43.9018 28.131 44.9113 27.94 45.9482 27.9127C46.6849 27.9127 47.4216 27.8308 48.131 27.8581C49.2497 27.8854 50.3411 27.94 51.4325 28.2128C52.1419 28.4038 52.8786 28.5948 53.588 28.7585C53.7244 28.7858 53.779 28.8677 53.779 29.0314C53.779 30.7231 53.779 32.442 53.779 34.1337C53.779 34.1883 53.779 34.2428 53.7517 34.3247C53.5334 34.1883 53.3424 34.0791 53.1514 33.97C52.2783 33.4789 51.3506 33.1514 50.3956 32.9059C49.3315 32.6603 48.2674 32.4966 47.176 32.5239C46.4393 32.5512 45.6753 32.6603 44.9932 32.9059C44.1473 33.206 43.4652 33.6971 43.1651 34.5975C42.9195 35.307 43.1105 35.9072 43.5471 36.4802C44.0928 37.1896 44.8295 37.6808 45.6207 38.0628C46.6849 38.5812 47.7763 39.0177 48.8131 39.5089C50.0136 40.0819 51.2142 40.6548 52.2237 41.5007C53.0969 42.2374 53.8881 43.0559 54.3247 44.1473C54.5703 44.8022 54.7885 45.4843 54.7885 46.221C54.8977 46.6576 54.9523 47.0941 54.925 47.5307Z"
                                             fill="#89BCD9" />
                                     </svg>
-                                    <svg class="skill-icons-36" name="javascript" viewBox="0 0 60 60" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" aria-label="javascript">
+                                    <svg class="skill-icons-36" title="JavaScript" name="javascript" viewBox="0 0 60 60"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="javascript">
                                         <path
                                             d="M0 0C20.0135 0 39.9865 0 60 0C60 20.0135 60 40.027 60 60C40.027 60 20.0135 60 0 60C0 39.946 0 19.973 0 0ZM53.6799 31.7623C52.4645 29.5746 50.8035 28.0756 48.4132 27.549C46.7117 27.1438 45.0101 27.1438 43.3086 27.5084C37.7988 28.6428 35.449 35.287 39.0142 39.7029C40.2701 41.2424 41.9311 42.1742 43.6732 42.9845C45.2127 43.7137 46.7927 44.4024 48.3322 45.1722C49.3855 45.6989 49.8312 46.6712 49.7097 47.8461C49.5881 49.0209 48.7778 49.6691 47.765 50.0338C45.4963 50.844 42.8629 50.1148 41.3234 48.2107C40.9993 47.8055 40.6752 47.3599 40.3511 46.9142C38.8116 47.8055 37.3126 48.6563 35.8136 49.5476C36.7454 51.3707 38.0419 52.8292 39.8244 53.8015C42.8629 55.4625 46.0635 55.7056 49.345 54.8953C51.4922 54.3687 53.3153 53.2748 54.4497 51.2897C56.5564 47.5219 55.341 42.8224 51.6138 40.5132C49.9527 39.5003 48.0891 38.8116 46.3471 37.9203C45.4963 37.4747 44.605 37.0695 43.8758 36.5024C42.5793 35.449 42.8224 33.3423 44.2809 32.5321C45.6988 31.7218 47.684 32.208 48.7778 33.6259C49.0209 33.9095 49.183 34.2336 49.4261 34.5577C50.8035 33.6259 52.2215 32.6941 53.6799 31.7623ZM15.8001 50.1553C16.6104 51.8974 17.7853 53.2748 19.4463 54.1661C21.5935 55.341 23.9433 55.5436 26.3336 55.1789C28.4808 54.8548 30.2633 53.8825 31.4382 51.9379C32.4105 50.3174 32.6941 48.5348 32.6941 46.6307C32.6941 40.4727 32.6941 34.3147 32.6941 28.1567C32.6941 27.9946 32.6941 27.792 32.6941 27.5895C30.79 27.5895 28.9669 27.5895 27.0628 27.5895C27.0628 27.8325 27.0628 28.0351 27.0628 28.2782C27.0628 34.3552 27.0628 40.3916 27.0628 46.4686C27.0628 47.0358 27.0223 47.6435 26.9413 48.2107C26.7792 49.1425 26.293 49.8312 25.3612 50.1148C23.6192 50.6415 22.2012 50.1148 21.1884 48.6158C20.9453 48.2107 20.7022 47.8055 20.4186 47.4004C18.8386 48.3322 17.3396 49.2235 15.8001 50.1553Z"
                                             fill="#89BCD9" />
                                     </svg>
                                 </div>
                             </div>
-                            <div class="project-content-image project-content-image-border-business coming-soon"
-                                aria-label="frame for image 'coming soon'">
-                                Comming soon...
+                            <div id="projectImageDiv3" class="project-content-image project-content-image-border-business coming-soon"
+                                aria-label="Image placeholder with text 'coming soon'">
+                                Coming soon...
                             </div>
 
                         </div>
@@ -634,9 +643,9 @@
         <div class="content-wrapper">
 
             <section id="references" class="references-section" tabindex="-1">
-                <h2 class="project-h2 show-when-mobile reference-h2">Need a teamplayer?</h2>
-                <p class="show-when-mobile">Here is what my colleagues said about me</p>
-                <h3 class="references-h3">
+                <h2 id="mobileReferenceH2" class="project-h2 show-when-mobile reference-h2">Need a teamplayer?</h2>
+                <p id="mobileReferenceSubtext" class="show-when-mobile">Here is what my colleagues said about me</p>
+                <h3 id="referenceHeader" class="references-h3">
                     Need a teamplayer? Here is what my colleagues said about me
                 </h3>
                 <article class="references-box">
@@ -732,15 +741,16 @@
                     </div>
                     <div class="form-stretch form-policy">
                         <input type="checkbox" id="chb-policy" class="form-chb-policy" aria-required="true"
-                        onchange="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')"
-                        onblur="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')">
+                            onchange="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')"
+                            onblur="validateField('chb-policy', 'errMsgText', isCheckboxValid, 3, 'policy: kindly accept')">
                         <label for="chb-policy" class="form-policy-label"> I've read the&nbsp;<a
                                 href="./legal_en.html"><span class="color-lightblue">privacy
                                     policy</span></a>&nbsp;and agree to the processing of my data as outlined.</label>
                     </div>
                     <div id="errMsgText" class="form-stretch error-message-text" aria-live="polite">
                     </div>
-                    <button type="submit" id="form-btn-send" class="form-stretch btn-standard form-button" role="alert" aria-label="send message" disabled>
+                    <button type="submit" id="form-btn-send" class="form-stretch btn-standard form-button" role="alert"
+                        aria-label="send message" disabled>
                         send
                     </button>
                 </form>
@@ -768,8 +778,8 @@
             <section class="footer-section">
 
                 <div class="footer-legal">
-                    <p><a href="./legal_en.html" rel="noopener noreferrer"
-                            aria-label="opens Legal notice">Legal notice</a></p>
+                    <p><a href="./legal_en.html" rel="noopener noreferrer" aria-label="opens Legal notice">Legal
+                            notice</a></p>
                     <p>&#169; Andreas Brem, 2026</p>
                 </div>
                 <a href="javascript:void(0)" onclick="scrollToTarget(event, 'header')" role="button"
