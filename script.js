@@ -304,14 +304,21 @@ async function postJsonData(jsonFormData) {
     try {
         let result = await submitFormData(jsonFormData);
         if (result.success) {
-            clearForm_sendForm();
-            alert('Message send successfully!');
+            handleSuccessfulFormSubmission();
         } else {
-            alert('sending error: ' + (result.error || 'unknown error'));
+            console.log('fetch processing error: ' + (result.error || 'unknown error'));
         }
     } catch (error) {
-        alert('network issue: ' + error);
+        console.log('network issue happend: ' + error);
     }
+}
+
+function handleSuccessfulFormSubmission() {
+    clearForm_sendForm();
+    bool.fill(0);
+    checkAllValidations_validateField();
+    document.getElementById('yourMsgHasBeenSend').classList.add('active');
+    setTimeout(() => { document.getElementById('yourMsgHasBeenSend').classList.remove('active'); }, 2000);
 }
 
 /**
