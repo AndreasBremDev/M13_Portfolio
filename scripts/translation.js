@@ -216,7 +216,7 @@ let tranlations = {
         'en': "Ready for the next project? I look forward to hearing from you!",
         'de': "Bereit für das nächste gemeinsame Projekt? Ich freue mich auf Deine Nachricht!"
     },
-    "contactPhone": { 'en': "Phone: +49 123 456 789 0", 'de': "Telefon: +49 123 456 789 0" },
+    "contactPhone": { 'en': "Phone: +49 170 89 534 80", 'de': "Telefon: +49 170 89 534 80" },
     "contactFormName": { 'en': "Your Name", 'de': "Dein Name" },
     "name": { 'en': "Your Name", 'de': "Dein Name" },
     "contactFormEmail": { 'en': "Your Email", 'de': "Deine E-Mail" },
