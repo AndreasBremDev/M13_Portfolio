@@ -1,4 +1,12 @@
-const heroTopOfPage_Aria = { 'en': "Go to top of the page", 'de': "Zum Seitenanfang springen" }
+
+/**
+ * Translation objects for static text in English and German.
+ * @typedef {{ en: string, de: string }} TranslationObject
+ */
+
+/** @type {TranslationObject} */
+const heroTopOfPage_Aria = { 'en': "Go to top of the page", 'de': "Zum Seitenanfang springen" };
+const mobileHeroTopLinkLegal_Aria = { 'en': "go back to A.Brem developer main page", 'de': "Zurück zur Hauptseite von Entwickler A.Brem" };
 const whyMe = { 'en': "Why me", 'de': "Warum ich" };
 const whyMe_Aria = { 'en': "Learn more about me", 'de': "Erfahre mehr über mich" };
 const skills = { 'en': "Skills", 'de': "Fähigkeiten" };
@@ -19,9 +27,16 @@ const projectTechnologies = { 'en': "Technologies", 'de': "Technologien" };
 const referenceLink = { 'en': "LinkedIn Profile", 'de': "LinkedIn Profil" };
 const referenceCodingSession = { 'en': "Coding sessions", 'de': "Programmier-Sessions" };
 
+/**
+ * Main translation mapping for all UI keys.
+ * @type {Object.<string, TranslationObject|Object<string, string>>}
+ */
 let tranlations = {
     "mobileHeroTopSection_Aria": { 'en': "Mobile Header", 'de': "Mobiler Header" },
     "mobileHeroTopLink_Aria": heroTopOfPage_Aria,
+    "mobileHeroTopLinkLegal_Aria": mobileHeroTopLinkLegal_Aria,
+    "mobileHeroBtnBackLegal_Aria": mobileHeroTopLinkLegal_Aria,
+    "heroTopLinkLegal_Aria": mobileHeroTopLinkLegal_Aria,
     "heroH2": { 'en': "FRONTEND DEVELOPER", 'de': "FRONTEND ENTWICKLER" },
     "burgerMenu_Aria": { 'en': "toggle mobile menu", 'de': "Mobiles Menü öffnen/schließen" },
     "mobileNavLinkMe": whyMe,
@@ -38,12 +53,16 @@ let tranlations = {
     "heroTopLink_Aria": heroTopOfPage_Aria,
     "navLinkMe": whyMe,
     "navLinkMe_Aria": whyMe_Aria,
+    "navLinkMeLegal_Aria": { 'en': "Learn more about me on main page", 'de': "Erfahre mehr über mich auf der Hauptseite" },
     "navLinkSkills": skills,
     "navLinkSkills_Aria": skills_Aria,
+    "navLinkSkillsLegal_Aria": { 'en': "Go to skills section on main page", 'de': "Gehe zum Abschnitt Fähigkeiten auf der Hauptseite" },
     "navLinkProjects": projects,
     "navLinkProjects_Aria": projects_Aria,
+    "navLinkProjectsLegal_Aria": { 'en': "Go to projects section on main page", 'de': "Gehe zum Abschnitt Projekte auf der Hauptseite" },
     "navLinkContact": contact,
     "navLinkContact_Aria": contact_Aria,
+    "navLinkContactLegal_Aria": { 'en': "Send me a message on main page", 'de': "Schreib mir eine Nachricht auf der Hauptseite" },
     "selectDE_Aria": switchToGerman,
     "selectEN_Aria": switchToEnglish,
     "sectionMeH2": whyMe,
@@ -65,8 +84,8 @@ let tranlations = {
         'de': "Was ich gerade lerne"
     },
     "sectionSkillsText": {
-        'en': "The journey just goes on and on. I'm keen to constantly gain knowledge. Development is driven by new challenges; overcoming them is what builds new skills.",
-        'de': "Lernen ist ein kontinuierlicher Prozess. Ich möchte mein Wissen stets erweitern. Weiterentwicklung bedeutet neue Herausforderungen und mit der Bewältigung dieser folgen neue Kompetenzen."
+        'en': "The journey never ends. I'm eager to continuously expand my knowledge. New challenges require new skills, so there will always be more to learn.",
+        'de': "Lernen ist ein kontinuierlicher Prozess. Ich möchte mein Wissen stetig erweitern. Neue Herausforderungen bringen neue Kompetenzen mit sich."
     },
     "sectionProjectH2": { 'en': "My Projects", 'de': "Meine Projekte" },
     "tab-project-1": { 'en': "1. Project", 'de': "1. Projekt" },
@@ -149,13 +168,13 @@ let tranlations = {
     "mobileProjectDuration3": { 'en': "Duration: 1-2 months", 'de': "Projektdauer: 1-2 Monate" },
     "projectImageDiv3": { 'en': "Coming soon", 'de': "Demnächst verfügbar" },
     "projectImageDiv3_Aria": { 'en': "Image placeholder with text 'Coming soon'", 'de': "Platzhalterbild mit Text 'Demnächst verfügbar'" },
-    "mobileReferenceH2": { 'en': "Need a teamplayer?", 'de': "Teamplayer gesucht?" },
+    "mobileReferenceH2": { 'en': "Need a team player?", 'de': "Teamplayer gesucht?" },
     "mobileReferenceSubtext": {
-        'en': "Here is what my colleagues said about me",
+        'en': "Here's what my colleagues say about me",
         'de': "Das sagen meine Kollegen über mich"
     },
     "referenceHeader": {
-        'en': "Need a teamplayer? Here is what my colleagues said about me",
+        'en': "Need a teamplayer? Here's what my colleagues say about me",
         'de': "Teamplayer gesucht? Das sagen meine Kollegen über mich"
     },
     "reference1_1": { 'en': "Project", 'de': "Projekt" },
@@ -190,7 +209,7 @@ let tranlations = {
     },
     "contactHeader": { 'en': "Contact me", 'de': "Kontakt" },
     "mobileContactSubtext": {
-        'en': "Let us work together",
+        'en': "Let's work together",
         'de': "Lass uns zusammenarbeiten"
     },
     "contactText": {
@@ -206,22 +225,24 @@ let tranlations = {
     "textarea": { 'en': "Your Message", 'de': "Deine Nachricht" },
     "chb-policy": { 'en': "Checkbox Input", 'de': "Checkbox Eingabe" },
     "contactFormPolicy1_1": { 'en': "I've read the", 'de': "Ich habe die" },
-    "contactFormPolicy1_2": { 'en': "privacy policy", 'de': "Rechtlichen Hinweise" },
+    "contactFormPolicy1_2": { 'en': "privacy policy", 'de': "rechtlichen Hinweise" },
     "contactFormPolicy1_3": { 'en': "and agree to the processing of my data as outlined.", 'de': "gelesen und bin mit der beschriebenen Verarbeitung meiner Daten einverstanden." },
-    "contactFormBtn": { 'en': "send", 'de': "Senden" },
+    "contactFormBtn": { 'en': "Send", 'de': "Senden" },
     "contactFormBtn_Aria": { 'en': "send message", 'de': "Nachricht senden" },
     "contactBtnUp_Aria": heroTopOfPage_Aria,
     "footerPolicy": { 'en': "Legal notice", 'de': "Rechtliche Hinweise" },
     "footerPolicy_Aria": { 'en': "Link to legal notice", 'de': "Link zu den rechtlichen Hinweisen" },
     "footerTopSection_Aria": heroTopOfPage_Aria,
+    "footerTopSectionLegal_Aria": mobileHeroTopLinkLegal_Aria,
     "footerSocialEmail_Aria": contact_Aria,
+    "footerSocialEmailLegal_Aria": { 'en': "Send me a message on main page", 'de': "Schreib mir eine Nachricht auf der Hauptseite" },
     "footerSocialGit_Aria": socialGit_Aria,
     "footerSocialLinkedIn_Aria": socialLinkedIn_Aria
 }
 
-
 /**
  * Set language settings to local storage.
+ * @param {boolean} isEnglishValue - Whether English is selected
  */
 function setToLocalStorageIsEnglish(isEnglishValue) {
     localStorage.setItem('isEnglish', JSON.stringify(isEnglishValue));
@@ -229,6 +250,7 @@ function setToLocalStorageIsEnglish(isEnglishValue) {
 
 /**
  * Load language settings from local storage.
+ * @returns {boolean} The language setting (true for English, false for German)
  */
 function getFromLocalStorageIsEnglish() {
     let isEnglishLocalStorage = JSON.parse(localStorage.getItem('isEnglish'));
@@ -240,6 +262,9 @@ function getFromLocalStorageIsEnglish() {
     }
 }
 
+/**
+ * Sets the document's language attribute based on current language.
+ */
 function setDocumentLanguage() {
     if (isEnglish) {
         document.documentElement.lang = 'en';
@@ -248,6 +273,10 @@ function setDocumentLanguage() {
     }
 }
 
+/**
+ * Translates all elements on the page based on the translation mapping.
+ * @param {Object.<string, TranslationObject|Object<string, string>>} array - The translation mapping
+ */
 function translatePage(array) {
     for (let key in array) {
         let elem = document.getElementById(key.replace(/_Aria$/, ''));
@@ -262,6 +291,12 @@ function translatePage(array) {
     }
 }
 
+/**
+ * Sets placeholder and error messages for form fields.
+ * @param {HTMLElement} elem - The input element
+ * @param {Object} array - The translation mapping
+ * @param {string} key - The translation key
+ */
 function setPlaceholderAndErrorMessages(elem, array, key) {
     elem.setAttribute('placeholder', isEnglish ? array[key].en : array[key].de);
     key === 'name' && elem.setAttribute('data-errMsg', isEnglish ? "name: at least 3 letters" : "Name: mindestens 3 Buchstaben");
@@ -270,17 +305,41 @@ function setPlaceholderAndErrorMessages(elem, array, key) {
     key === 'chb-policy' && elem.setAttribute('data-errMsg', isEnglish ? "policy: kindly accept" : "Richtlinien: Bitte akzeptieren");
 }
 
+/**
+ * Sets the language for the page and updates UI accordingly.
+ * @param {boolean} isEnglishValue - Whether English is selected
+ */
 function setLanguage(isEnglishValue) {
     isEnglish = isEnglishValue;
-    if (isEnglish) {
-        toggleClassActive(document.getElementById('selectEN'), 'language-tab');
-        toggleClassActive(document.getElementById('selectMobileEN'), 'language-mobile-tab');
-
-    } else {
-        toggleClassActive(document.getElementById('selectDE'), 'language-tab');
-        toggleClassActive(document.getElementById('selectMobileDE'), 'language-mobile-tab');
-    }
+    isEnglish ? setEnglishLanguageTabActive_setLanguage() : setGermanLanguageTabActive_setLanguage();
+    window.location.pathname.includes('legal') && renderLegalContent_setLanguage();
     translatePage(tranlations);
     setDocumentLanguage();
     setToLocalStorageIsEnglish(isEnglishValue);
+}
+
+/**
+ * Activates the German language tab in the UI.
+ */
+function setGermanLanguageTabActive_setLanguage() {
+    toggleClassActive(document.getElementById('selectDE'), 'language-tab');
+    if (!document.getElementById('selectMobileDE')) { }
+    else { toggleClassActive(document.getElementById('selectMobileDE'), 'language-mobile-tab'); }
+}
+
+/**
+ * Activates the English language tab in the UI.
+ */
+function setEnglishLanguageTabActive_setLanguage() {
+    toggleClassActive(document.getElementById('selectEN'), 'language-tab');
+    if (!document.getElementById('selectMobileEN')) { }
+    else { toggleClassActive(document.getElementById('selectMobileEN'), 'language-mobile-tab'); }
+}
+
+/**
+ * Renders the legal content in the selected language.
+ */
+function renderLegalContent_setLanguage() {
+    let legalContentDiv = document.getElementById('renderLegalContent');
+    isEnglish ? legalContentDiv.innerHTML = renderLegalHtmlEN() : legalContentDiv.innerHTML = renderLegalHtmlDE();
 }
