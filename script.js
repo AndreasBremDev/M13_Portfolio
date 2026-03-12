@@ -271,14 +271,18 @@ function checkAllValidations_validateField() {
  * Handles form submission: resets fields if valid, logs otherwise.
  */
 function sendForm() {
-    // if (bool.every(el => el === 1)) {
+    if (bool.every(el => el === 1)) {
         let jsonFormData = createJsonObject();
         postJsonData(jsonFormData)
-    // } else {
-    //     console.log('Form is not valid, cannot send.');
-    // }
+    } else {
+        console.log('Form is not valid, cannot send.');
+    }
 }
 
+/**
+ * Creates a JSON string object from the form input values.
+ * @returns {string} JSON string with name, email, and message
+ */
 function createJsonObject() {
     let name = document.getElementById('name').value.trim();
     let email = document.getElementById('email').value.trim();
@@ -291,38 +295,53 @@ function createJsonObject() {
     return jsonFormData;
 }
 
-function postJsonData(jsonFormData) {
-    fetch('mail.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: jsonFormData
-    })
-    .then(response => response.text())
-    .then(text => {
-        let result;
-        try {
-            result = JSON.parse(text);
-        } catch (e) {
-            throw new Error('Server returned no valid JSON: ' + text);
-        }
+/**
+ * Sends the form data asynchronously to mail.php and processes the response.
+ * @param {string} jsonFormData - The form data to send as a JSON string
+ * @returns {Promise<void>}
+ */
+async function postJsonData(jsonFormData) {
+    try {
+        let result = await submitFormData(jsonFormData);
         if (result.success) {
             clearForm_sendForm();
-            alert('Nachricht erfolgreich gesendet!');
+            alert('Message send successfully!');
         } else {
-            alert('Fehler beim Senden: ' + (result.error || 'Unbekannter Fehler'));
+            alert('sending error: ' + (result.error || 'unknown error'));
         }
-    })
-    .catch(error => {
-        alert('Netzwerkfehler: ' + error);
-    });
+    } catch (error) {
+        alert('network issue: ' + error);
+    }
 }
 
 /**
- * Clears form fields and resets checkbox state after successful form submission.
+ * Sends the form data via fetch to mail.php and returns the parsed result.
+ * @param {string} jsonFormData - The form data to send as a JSON string
+ * @returns {Promise<Object>} The parsed JSON result from the server
+ * @throws {Error} If the server response is not valid JSON
+ */
+async function submitFormData(jsonFormData) {
+    const response = await fetch('mail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: jsonFormData
+    });
+    const text = await response.text();
+    let result;
+    try {
+        result = JSON.parse(text);
+    } catch (e) {
+        throw new Error('Server returned no valid JSON: ' + text);
+    }
+    return result;
+}
+
+/**
+ * Clears form fields and resets the checkbox state after successful form submission.
  */
 function clearForm_sendForm() {
-    document.getElementById('text').value = '';
+    document.getElementById('name').value = '';
     document.getElementById('email').value = '';
     document.getElementById('textarea').value = '';
-    document.getElementById('checkbox').checked = false;
+    document.getElementById('chb-policy').checked = false;
 }
