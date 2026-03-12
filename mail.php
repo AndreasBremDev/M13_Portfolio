@@ -56,7 +56,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         // Empfängeradresse (nutzt die oben definierte Mail)
         $recipient = $siteEmail; 
-        $subject = 'Website Contact Form';
+        $subject = 'Portfolio Message Form from ' . date("Y-m-d");
 
         $mailBody = "
             <strong>Name:</strong> {$safeName}<br>
@@ -69,7 +69,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=utf-8';
-        $headers[] = 'From: Website Kontakt <' . $siteEmail . '>'; 
+        $headers[] = 'From: Andreas Brem portfolio form <' . $siteEmail . '>'; 
         $headers[] = 'Reply-To: ' . $email;
         $headers[] = 'Return-Path: ' . $siteEmail; 
 
