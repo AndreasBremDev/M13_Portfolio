@@ -1,4 +1,9 @@
 <?php
+// TEMPORÄR nur fürs DEBUGGING:
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// TEMPORÄR nur fürs DEBUGGING ENDE
 
 // CORS headers (for Angular / frontend apps)
 header("Access-Control-Allow-Origin: *");

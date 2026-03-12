@@ -271,29 +271,58 @@ function checkAllValidations_validateField() {
  * Handles form submission: resets fields if valid, logs otherwise.
  */
 function sendForm() {
-    if (bool.every(el => el === 1)) {
-        document.getElementById('text').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('textarea').value = '';
-        document.getElementById('checkbox').checked = false;
-    } else {
-        console.log('Form is not valid, cannot send.');
-    }
+    // if (bool.every(el => el === 1)) {
+        let jsonFormData = createJsonObject();
+        postJsonData(jsonFormData)
+    // } else {
+    //     console.log('Form is not valid, cannot send.');
+    // }
+}
+
+function createJsonObject() {
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let message = document.getElementById('textarea').value.trim();
+    let data = { 
+        name: name, 
+        email: email, 
+        message: message };
+    const jsonFormData = JSON.stringify(data);
+    return jsonFormData;
+}
+
+function postJsonData(jsonFormData) {
+    fetch('mail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: jsonFormData
+    })
+    .then(response => response.text())
+    .then(text => {
+        let result;
+        try {
+            result = JSON.parse(text);
+        } catch (e) {
+            throw new Error('Server returned no valid JSON: ' + text);
+        }
+        if (result.success) {
+            clearForm_sendForm();
+            alert('Nachricht erfolgreich gesendet!');
+        } else {
+            alert('Fehler beim Senden: ' + (result.error || 'Unbekannter Fehler'));
+        }
+    })
+    .catch(error => {
+        alert('Netzwerkfehler: ' + error);
+    });
 }
 
 /**
- * Removes focus from anchor targets after hash navigation.
+ * Clears form fields and resets checkbox state after successful form submission.
  */
-document.addEventListener('hashchange', () => {
-    let array = ['me', 'skills', 'projects', 'contact'];
-    console.log('hashchange, die URL hat sich geändert');
-    
-    for (let i = 0; i < array.length; i++) {
-        if (window.location.pathname.includes(`#${array[i]}`)) {
-            let el = document.getElementById(array[i]);
-            if (el) {
-                el.blur();
-            }
-        }
-    }
-});
+function clearForm_sendForm() {
+    document.getElementById('text').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('textarea').value = '';
+    document.getElementById('checkbox').checked = false;
+}
