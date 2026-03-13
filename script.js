@@ -135,6 +135,7 @@ function scrollToTarget(ev, targetId) {
             bounceWholePage(target);
         });
     }, { once: true });
+    setTimeout(() => { window.location.hash = targetId;}, 310); 
 }
 
 /**
