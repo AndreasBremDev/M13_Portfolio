@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -402,7 +403,8 @@ button {
     text-wrap: nowrap;
 }
 
-.nav-links {
+.nav-links,
+.mobile-nav-links {
     font-size: 26px;
     font-weight: 500;
     line-height: 200%;
@@ -413,13 +415,15 @@ button {
 
 .language-tab.active,
 .language-mobile-tab.active,
-.nav-links.active {
+.nav-links.active,
+.mobile-nav-links.active {
     color: var(--secondary);
 }
 
 .language-tab.active::before,
 .language-mobile-tab.active::before,
-.nav-links.active::before {
+.nav-links.active::before,
+.mobile-nav-links.active::before {
     content: '';
     position: absolute;
     inset: 0;

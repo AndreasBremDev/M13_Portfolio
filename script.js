@@ -77,18 +77,6 @@ window.addEventListener('resize', () => {
 });
 
 /**
- * Sets active navigation tab and scrolls smoothly to the target section.
- * @param {Event} ev - The event object
- * @param {string} navTabs - The class name of navigation tabs
- * @param {string} targetId - The id of the target element
- */
-function setActiveAndScrollToTarget(ev, navTabs, targetId) {
-    ev.preventDefault();
-    toggleClassActive(ev, navTabs);
-    scrollToTarget(ev, targetId);
-}
-
-/**
  * Toggles the 'active' class for navigation or tab elements.
  * @param {Event|HTMLElement} eventOrDOMElem - The event or DOM element
  * @param {string} tabs - The class name of tab elements
@@ -119,37 +107,6 @@ function showContentTab(contentTabs, targetId) {
     }
     document.getElementById(targetId).style.display = "flex";
     document.getElementById(targetId).setAttribute("aria-selected", "true");
-}
-
-/**
- * Smoothly scrolls to the target element and triggers bounce animation.
- * @param {Event} ev - The event object
- * @param {string} targetId - The id of the target element
- */
-function scrollToTarget(ev, targetId) {
-    ev.preventDefault();
-    let target = document.getElementById(targetId);
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.addEventListener("scrollend", () => {
-        requestAnimationFrame(() => {
-            bounceWholePage(target);
-        });
-    }, { once: true });
-    setTimeout(() => { window.location.hash = targetId;}, 310); 
-}
-
-/**
- * Adds a bounce animation to the main element and briefly focuses/blurs the target.
- * @param {HTMLElement} target - The target element
- */
-function bounceWholePage(target) {
-    let main = document.querySelector("main");
-    main.classList.add("bounce-page");
-    setTimeout(() => {
-        main.classList.remove("bounce-page");
-        target.focus();
-        target.blur();
-    }, 300);
 }
 
 /**

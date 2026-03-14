@@ -60,27 +60,27 @@
                             </div>
                             <div class="hero-image-shape-container-back">
                                 <nav id="mobileNavMenu" class="mobile-link-section" aria-label="Mobile Navigation">
-                                    <a id="mobileNavLinkMe" href="javascript:void(0)" tabindex="-1"
-                                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')" class="nav-links"
-                                        aria-label="Go to me section" aria-labelledby="me">
+                                    <a id="mobileNavLinkMe" href="#me" tabindex="-1" class="mobile-nav-links"
+                                        aria-label="Go to me section" aria-labelledby="me"
+                                        onclick="toggleClassActive(event, 'mobile-nav-links')">
                                         Why me
                                     </a>
-                                    <a id="mobileNavLinkSkills" href="javascript:void(0)" tabindex="-1"
-                                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')"
-                                        class="nav-links" role="button" aria-label="Go to skills section"
-                                        aria-labelledby="skills">
+                                    <a id="mobileNavLinkSkills" href="#skills" tabindex="-1"
+                                        class="mobile-nav-links" role="button" aria-label="Go to skills section"
+                                        aria-labelledby="skills"
+                                        onclick="toggleClassActive(event, 'mobile-nav-links')">
                                         Skills
                                     </a>
-                                    <a id="mobileNavLinkProjects" href="javascript:void(0)" tabindex="-1"
-                                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')"
-                                        class="nav-links" role="button" aria-label="Go to projects section"
-                                        aria-labelledby="projects">
+                                    <a id="mobileNavLinkProjects" href="#projects" tabindex="-1"
+                                        class="mobile-nav-links" role="button" aria-label="Go to projects section"
+                                        aria-labelledby="projects"
+                                        onclick="toggleClassActive(event, 'mobile-nav-links')">
                                         Projects
                                     </a>
-                                    <a id="mobileNavLinkContact" href="javascript:void(0)" tabindex="-1"
-                                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'contact')"
-                                        class="nav-links" role="button" aria-label="Send me a message"
-                                        aria-labelledby="contact">
+                                    <a id="mobileNavLinkContact" href="#contact" tabindex="-1"
+                                        class="mobile-nav-links" role="button" aria-label="Send me a message"
+                                        aria-labelledby="contact"
+                                        onclick="toggleClassActive(event, 'mobile-nav-links')">
                                         Contact
                                     </a>
                                     <article id="mobileLanguage" class="mobile-language"
@@ -116,9 +116,7 @@
                     </div>
                     <h1 class="hero-h1">Andreas Brem</h1>
                     <h2 id="heroH2" class="hero-h2">FRONTEND DEVELOPER</h2>
-                    <a id="heroBtn" class="hero-btn-down" href="javascript:void(0)"
-                        onclick="scrollToTarget(event, 'me')" tabindex="0"
-                        onkeydown="handleKeydownEnterSpace(event, this)" data-action="scrollToTarget(event, 'me')"
+                    <a id="heroBtn" class="hero-btn-down" href="#me" tabindex="0"
                         class="nav-links" role="button" aria-label="Learn more about me" aria-labelledby="me">
                         <svg aria-hidden="true" width="38" height="89" viewBox="0 0 38 89" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +127,7 @@
                     </a>
                 </article>
                 <article class="hero-social-group" aria-label="Social media buttons">
-                    <a id="heroSocialEmail" href="javascript:void(0)" onclick="scrollToTarget(event, 'contact')"
+                    <a id="heroSocialEmail" href="#contact"
                         class="btn-social-hero" data-icon="email" role="button" aria-label="Send me a message"
                         aria-labelledby="contact"></a>
                     <a id="heroSocialGit" href="https://github.com/AndreasBremDev" target="_blank"
@@ -146,8 +144,7 @@
         <div class="content-wrapper">
             <section class="nav-positioning">
                 <article>
-                    <a id="heroTopLink" href="javascript:void(0)" onclick="scrollToTarget(event, 'header')"
-                        aria-label="Go to top of the page" aria-labelledby="header">
+                    <a id="heroTopLink" href="#header" aria-label="Go to top of the page" aria-labelledby="header">
                         <div class="logo-main">
                             <svg aria-label="Andreas Brem Logo" width="53" height="38" viewBox="0 0 53 38" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -167,24 +164,24 @@
                     </a>
                 </article>
                 <article class="nav-link-section">
-                    <a id="navLinkMe" href="javascript:void(0)"
-                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'me')" class="nav-links" role="button"
-                        aria-label="Learn more about me" aria-labelledby="me">
+                    <a id="navLinkMe" href="#me" class="nav-links" 
+                        role="button" aria-label="Learn more about me" aria-labelledby="me"
+                        onclick="toggleClassActive(event, 'nav-links')">
                         Why me
                     </a>
-                    <a id="navLinkSkills" href="javascript:void(0)"
-                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'skills')" class="nav-links"
-                        role="button" aria-label="Go to skills section" aria-labelledby="skills">
+                    <a id="navLinkSkills" href="#skills" class="nav-links"
+                        role="button" aria-label="Go to skills section" aria-labelledby="skills"
+                        onclick="toggleClassActive(event, 'nav-links')">
                         Skills
                     </a>
-                    <a id="navLinkProjects" href="javascript:void(0)"
-                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'projects')" class="nav-links"
-                        role="button" aria-label="Go to projects section" aria-labelledby="projects">
+                    <a id="navLinkProjects" href="#projects" class="nav-links"
+                        role="button" aria-label="Go to projects section" aria-labelledby="projects"
+                        onclick="toggleClassActive(event, 'nav-links')">
                         Projects
                     </a>
-                    <a id="navLinkContact" href="javascript:void(0)"
-                        onclick="setActiveAndScrollToTarget(event, 'nav-links', 'contact')" class="nav-links"
-                        role="button" aria-label="Send me a message" aria-labelledby="contact">
+                    <a id="navLinkContact" href="#contact" class="nav-links"
+                        role="button" aria-label="Send me a message" aria-labelledby="contact"
+                        onclick="toggleClassActive(event, 'nav-links')">
                         Contact
                     </a>
                 </article>
@@ -200,7 +197,7 @@
     <main>
         <div class="content-wrapper">
 
-            <section id="me" class="me-section" tabindex="-1">
+            <section id="me" class="me-section">
                 <h2 id="sectionMeH2" class="me-h2 scroll-animation-up">Why me</h2>
                 <div class="me-boxes">
                     <div id="meInteractive" class="me-interactive" role="region"
@@ -218,15 +215,15 @@
                     </div>
                 </div>
                 <div class="btn-me-contact">
-                    <a id="sectionMeBtn" href="javascript:void(0)" class="btn-standard"
-                        onclick="scrollToTarget(event, 'contact')" role="button" aria-label="Send me a message"
+                    <a id="sectionMeBtn" href="#contact" class="btn-standard"
+                        role="button" aria-label="Send me a message"
                         aria-labelledby="contact">
                         Let's talk
                     </a>
                 </div>
             </section>
 
-            <section id="skills" class="skill-section" tabindex="-1">
+            <section id="skills" class="skill-section">
                 <h2 id="sectionSkillsH2" class="skill-h2 scroll-animation-up">My Skills</h2>
                 <div class="skill-boxes">
                     <div class="skill-icons-section color-lightblue">
@@ -333,8 +330,8 @@
                             learn.
                         </p>
                         <div class="skill-btn-contact show-when-mobile">
-                            <a id="mobileSectionSkillsBtn" href="javascript:void(0)" class="btn-cta"
-                                onclick="scrollToTarget(event, 'contact')" role="button" aria-label="Send me a message"
+                            <a id="mobileSectionSkillsBtn" href="#contact" class="btn-cta"
+                                role="button" aria-label="Send me a message"
                                 aria-labelledby="contact">
                                 Let's talk
                             </a>
@@ -344,7 +341,7 @@
             </section>
         </div>
 
-        <section id="projects" class="project-section" tabindex="-1">
+        <section id="projects" class="project-section">
             <div class="content-wrapper">
                 <h2 id="sectionProjectH2" class="project-h2 scroll-animation-up">My Projects</h2>
                 <div class="project-tabs" role="tablist">
@@ -648,7 +645,7 @@
 
         <div class="content-wrapper">
 
-            <section id="references" class="references-section" tabindex="-1">
+            <section id="references" class="references-section">
                 <h2 id="mobileReferenceH2" class="project-h2 show-when-mobile reference-h2 scroll-animation-up">Need a teamplayer?</h2>
                 <p id="mobileReferenceSubtext" class="show-when-mobile scroll-animation-up">Here's what my colleagues say about me</p>
                 <h3 id="referenceHeader" class="references-h3 scroll-animation-up">
@@ -703,7 +700,7 @@
                 </article>
             </section>
 
-            <section id="contact" class="contact-section" tabindex="-1">
+            <section id="contact" class="contact-section">
                 <h2 id="contactHeader" class="contact-h2 scroll-animation-up">Contact me</h2>
                 <div class="contact-boxes">
                     <div id="mobileContactSubtext" class="contact-message show-when-mobile">
@@ -759,9 +756,8 @@
                     </div>
                 </form>
 
-                <a id="contactBtnUp" class="contact-btn-up scroll-animation-up" href="javascript:void(0)"
-                    onclick="scrollToTarget(event, 'header')" aria-label="Go to top of the page"
-                    aria-labelledby="header">
+                <a id="contactBtnUp" class="contact-btn-up scroll-animation-up" href="#header"
+                    aria-label="Go to top of the page" aria-labelledby="header">
                     <svg aria-hidden="true" width="38" height="89" viewBox="0 0 38 89" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" y="0.5" width="37" height="88" rx="18.5" stroke="#89BCD9" />
@@ -788,7 +784,7 @@
                             notice</a></p>
                     <p>&#169; Andreas Brem, 2026</p>
                 </div>
-                <a id="footerTopSection" href="javascript:void(0)" onclick="scrollToTarget(event, 'header')"
+                <a id="footerTopSection" href="#header"
                     role="button" aria-label="Go to top of the page" aria-labelledby="header">
                     <div class="logo-main">
                         <svg aria-label="Andreas Brem Logo" width="53" height="38" viewBox="0 0 53 38" fill="none"
@@ -809,7 +805,7 @@
                 </a>
 
                 <article class="footer-social-group">
-                    <a id="footerSocialEmail" href="javascript:void(0)" onclick="scrollToTarget(event, 'contact')"
+                    <a id="footerSocialEmail" href="#contact"
                         class="btn-social-footer" data-icon="email" role="button" aria-label="Send me a message"></a>
                     <a id="footerSocialGit" href="https://github.com/AndreasBremDev" target="_blank"
                         rel="noopener noreferrer" class="btn-social-footer" data-icon="git" role="button"

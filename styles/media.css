@@ -157,6 +157,7 @@
         align-items: start;
         padding-left: 72px;
         text-align: start;
+
     }
 
     .references-text {
@@ -448,6 +449,22 @@
         display: none;
     }
 
+    .references-box {
+        scroll-snap-type: x proximity;
+    }
+
+    .references-text-container:first-child {
+        scroll-snap-align: start;
+    }
+
+    .references-text-container:nth-child(2) {
+        scroll-snap-align: center;
+    }
+
+    .references-text-container:last-child {
+        scroll-snap-align: end;
+    }
+
     /* ------------ CONTACT section ------------  */
 
     .contact-boxes {
@@ -538,6 +555,7 @@
     .me-interactive {
         padding-left: 64px;
     }
+
 }
 
 @media(max-width:460px) {
@@ -582,6 +600,14 @@
         padding: 0 0px;
     }
 
+    /* ------------ REFERENCE section ------------  */
+
+    .references-text-container:nth-child(2) {
+        scroll-snap-align: center;
+    }
+    .references-text-container:last-child {
+        scroll-snap-align: center;
+    }
     .references-text-container {
         padding-right: 24px;
     }
@@ -611,4 +637,10 @@
     .reference-h2 {
         font-size: 30px;
     }
+    /* ------------ REFERENCE section ------------  */
+
+    .references-text-container:first-child {
+        scroll-margin-inline: 24px;
+    }
+
 }
